@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time2leave: 1
+  latitude: 9.99
+  longitude: 9.99
+
+two:
+  time2leave: 1
+  latitude: 9.99
+  longitude: 9.99
