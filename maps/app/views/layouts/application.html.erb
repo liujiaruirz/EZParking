@@ -14,6 +14,15 @@
   </head>
 
   <body>
+  <% if current_user %>
+    <%= link_to('logout', destroy_user_session_path, :method => :delete) %> |
+    <%= link_to('change password', edit_registration_path(:user)) %>
+  <% else %>
+    <%= link_to('register', new_registration_path(:user)) %> |
+    <%= link_to('login', new_session_path(:user)) %>
+  <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

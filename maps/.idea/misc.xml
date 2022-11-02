@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8" />
+    <option name="runMavenInBackground" value="false" />
+    <option name="vmOptions" value="-DarchetypeCatalog=internal" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="RVM: ruby-2.6.6 [rails528]" project-jdk-type="RUBY_SDK" />
+</project>
