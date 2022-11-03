@@ -20,17 +20,17 @@
 
   <div class="field">
     <%= form.label :time2leave %>
-    <%= form.number_field :time2leave %>
+    <%= form.number_field :time2leave, type: "number", required: true, min: "0"%>
   </div>
 
   <div class="field">
     <%= form.label :latitude %>
-    <%= form.text_field :latitude %>
+    <%= form.text_field :latitude, type: "number", required: true, min: "-90", max: "90", step: "any" %>
   </div>
 
   <div class="field">
     <%= form.label :longitude %>
-    <%= form.text_field :longitude %>
+    <%= form.text_field :longitude, type: "number", required: true, min: "-180", max: "180", step: "any"  %>
   </div>
 
   <p>

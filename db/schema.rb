@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2022_10_31_235919) do
   enable_extension "plpgsql"
 
   create_table "lists", force: :cascade do |t|
-    t.string "name"
-    t.string "idcard"
-    t.string "phone"
+    t.text "name"
+    t.text "idcard"
+    t.text "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2022_10_31_235919) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.text "email", default: "", null: false
+    t.text "encrypted_password", default: "", null: false
+    t.text "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false

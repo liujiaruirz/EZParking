@@ -9,12 +9,12 @@ Background: spots data added to database
 
 
   Given the following spots exist:
-  | time2leave | latitude  | longitude  |
-  | 30         | 40.807346 | -73.960714 |
-  | 120        | 40.808479 | -73.963412 |
-  | 1          | 40.804792 | -73.964156 |
-  | 99         | 40.806054 | -73.961227 |
-  | 10         | 40.0      | -15.0      |
+  |id| time2leave | latitude  | longitude  |
+  |1 | 30         | 40.807346 | -73.960714 |
+  |2 | 120        | 40.808479 | -73.963412 |
+  |3 | 1          | 40.804792 | -73.964156 |
+  |4 | 99         | 40.806054 | -73.961227 |
+  |5 | 10         | 40.0      | -15.0      |
 
   Given  I am on the spots page
   Then 5 seed spots should exist
