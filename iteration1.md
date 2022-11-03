@@ -9,6 +9,11 @@ Ruby version:             2.6.6-p146 (x86_64-darwin21)
 Instructions/Command lines:
 To run the product:
 0. install and start postgresql ('brew install postgresql' and 'brew services start postgresql' for Mac Users)
+1. bundle install
+2. rake db:migrate
+3. rails server
+
+To test the product:
 1. Run bundle install --without production to make sure all gems are properly installed. 
 2. Create the initial database schema:
 	bundle exec rake db:migrate
@@ -16,7 +21,6 @@ To run the product:
 3. Double check that RSpec is correctly set up by running rake spec
 4. Double check that Cucumber is correctly set up by running rake cucumber.
 
-To test the product:
 
 Heroku Deployment Link:
 https://secure-scrubland-29494.herokuapp.com/
