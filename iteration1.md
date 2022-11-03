@@ -8,6 +8,7 @@ Ruby version:             2.6.6-p146 (x86_64-darwin21)
 
 Instructions/Command lines:
 To run the product:
+0. install and start postgresql ('brew install postgresql' and 'brew services start postgresql' for Mac Users)
 1. bundle install
 2. rake db:migrate
 3. rails server
