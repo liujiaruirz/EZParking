@@ -20,3 +20,17 @@ Parking apps on the market are mostly related to the purchase/reservation of a g
 
 ### YouTube Video
 https://youtu.be/yTieByrqsxI
+
+## Iteration 1
+## Application Environment:
+Rails version             5.2.8.1
+Ruby version:             2.6.6-p146 (x86_64-darwin21)
+### Instructions/Command lines:
+#### To run the product:
+1. install and start postgresql ('brew install postgresql' and 'brew services start postgresql' for Mac Users)
+2. bundle install
+3. rake db:migrate
+4. rails server
+#### To test the product:
+### Heroku Deployment Link:
+https://secure-scrubland-29494.herokuapp.com/
