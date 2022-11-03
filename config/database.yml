@@ -165,7 +165,7 @@ test:
 #
 production:
   <<: *default
-  database: ezparking_production
+  database: dcqnt0pnve2t15
   username: vqkrqatgezfqhx
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
