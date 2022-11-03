@@ -168,3 +168,4 @@ production:
   database: ezparking_production
   username: vqkrqatgezfqhx
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
