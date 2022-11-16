@@ -33,5 +33,7 @@ Ruby version:             2.6.6-p146 (x86_64-darwin21)
 4. rake db:migrate
 5. rails server
 #### To test the product:
+bundle exec cucumber
+bundle exec rspec
 ### Heroku Deployment Link:
 https://secure-scrubland-29494.herokuapp.com/
