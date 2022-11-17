@@ -30,8 +30,8 @@ Then I should see "Longitude"
 Scenario: edit spot detail
 When I click Edit 
 And I fill in "dt" with "2022-11-17 20:18:01"
-And I fill in "latitude" with "50"
-And I fill in "longitude" with "-80"
+And I fill in "Latitude" with "50"
+And I fill in "Longitude" with "-80"
 And I press "Update Spot"
 Then I should see "2022-11-17 20:18:01" after "Time to Leave"
 Then I should see "Longitude"
@@ -47,8 +47,8 @@ And I should see "-80.0" after "Longitude"
 Scenario: add new spot
 When I click New Spot
 And I fill in "dt" with "2022-11-25 20:10:05"
-And I fill in "latitude" with "70"
-And I fill in "longitude" with "-25"
+And I fill in "Latitude" with "70"
+And I fill in "Longitude" with "-25"
 And I press "Create Spot"
 Then I should see "2022-11-25 20:10:05" after "Time to Leave" 
 And I should see "70.0" after "Latitude"
