@@ -10573,3 +10573,934 @@ Processing by HomeController#index as HTML
   Rendered home/index.html.erb within layouts/application (0.2ms)
 Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (27.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ezparking_test"[0m
+  [1m[35m (56.1ms)[0m  [1m[35mCREATE DATABASE "ezparking_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "lists" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "lists" ("id" bigserial primary key, "name" text, "idcard" text, "phone" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "spots" CASCADE[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "spots" ("id" bigserial primary key, "time2leave" integer, "latitude" decimal, "longitude" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" text DEFAULT '' NOT NULL, "encrypted_password" text DEFAULT '' NOT NULL, "reset_password_token" text, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20221031235919)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20221030191855),
+(20221031235746);
+
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-11-03 22:10:27.212894"], ["updated_at", "2022-11-03 22:10:27.212894"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.6ms)[0m  [1m[32mINSERT INTO "spots" ("latitude", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["latitude", "20.0"], ["created_at", "2022-11-03 22:10:27.261847"], ["updated_at", "2022-11-03 22:10:27.261847"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("latitude", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["latitude", "20.0"], ["created_at", "2022-11-03 22:15:06.817285"], ["updated_at", "2022-11-03 22:15:06.817285"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.4ms)[0m  [1m[32mINSERT INTO "spots" ("latitude", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["latitude", "20.0"], ["created_at", "2022-11-03 22:18:41.277790"], ["updated_at", "2022-11-03 22:18:41.277790"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.4ms)[0m  [1m[32mINSERT INTO "spots" ("latitude", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["latitude", "20.0"], ["created_at", "2022-11-03 22:19:16.479603"], ["updated_at", "2022-11-03 22:19:16.479603"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 18:25:34 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 286ms (Views: 279.3ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 18:25:53 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 110ms (Views: 105.2ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("latitude", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["latitude", "20.0"], ["created_at", "2022-11-03 22:25:53.327953"], ["updated_at", "2022-11-03 22:25:53.327953"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 18:31:06 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 112ms (Views: 107.1ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.4ms)[0m  [1m[32mINSERT INTO "spots" ("latitude", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["latitude", "20.0"], ["created_at", "2022-11-03 22:31:06.832047"], ["updated_at", "2022-11-03 22:31:06.832047"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 18:31:13 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 108ms (Views: 103.6ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 18:31:14 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (14.8ms)
+  Rendered spots/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 24ms (Views: 17.5ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("latitude", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["latitude", "20.0"], ["created_at", "2022-11-03 22:31:14.086736"], ["updated_at", "2022-11-03 22:31:14.086736"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:06:14 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 148ms (Views: 142.0ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/1" for 127.0.0.1 at 2022-11-03 19:06:14 -0400
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 3.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:07:02 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 140ms (Views: 134.8ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/spots/new" for 127.0.0.1 at 2022-11-03 19:07:03 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:07:20 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 141ms (Views: 135.4ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/spots" for 127.0.0.1 at 2022-11-03 19:07:20 -0400
+Processing by SpotsController#create as HTML
+  Parameters: {"spot"=>{"time2leave"=>"10", "latitude"=>"10", "longitude"=>"20"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "10.0"], ["longitude", "20.0"], ["created_at", "2022-11-03 23:07:20.212810"], ["updated_at", "2022-11-03 23:07:20.212810"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/8
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:08:22 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 148ms (Views: 142.2ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/spots" for 127.0.0.1 at 2022-11-03 19:08:22 -0400
+Processing by SpotsController#create as HTML
+  Parameters: {"spot"=>{"time2leave"=>"20", "latitude"=>"30", "longitude"=>"40"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.4ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 20], ["latitude", "30.0"], ["longitude", "40.0"], ["created_at", "2022-11-03 23:08:22.282270"], ["updated_at", "2022-11-03 23:08:22.282270"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/9
+Completed 302 Found in 9ms (ActiveRecord: 2.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:29:28 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 140ms (Views: 135.1ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 19:29:28 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (37.8ms)
+  Rendered spots/new.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 47ms (Views: 40.8ms | ActiveRecord: 2.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users/sign_up" for 127.0.0.1 at 2022-11-03 19:29:28 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:30:17 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 142ms (Views: 136.7ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 19:30:18 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (36.8ms)
+  Rendered spots/new.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 46ms (Views: 39.2ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users/" for 127.0.0.1 at 2022-11-03 19:30:18 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"20@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "20@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 28ms (Views: 10.2ms | ActiveRecord: 4.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:30:59 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 141ms (Views: 135.9ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 19:30:59 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (35.6ms)
+  Rendered spots/new.html.erb within layouts/application (36.4ms)
+Completed 200 OK in 44ms (Views: 38.3ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users/" for 127.0.0.1 at 2022-11-03 19:30:59 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"20@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "20@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.6ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 20ms (Views: 6.5ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:35:51 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 143ms (Views: 137.8ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 19:35:51 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (34.7ms)
+  Rendered spots/new.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 44ms (Views: 37.2ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/spots" for 127.0.0.1 at 2022-11-03 19:35:51 -0400
+Processing by SpotsController#create as HTML
+  Parameters: {"spot"=>{"time2leave"=>"20", "latitude"=>"20", "longitude"=>"20"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.4ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 20], ["latitude", "20.0"], ["longitude", "20.0"], ["created_at", "2022-11-03 23:35:51.528741"], ["updated_at", "2022-11-03 23:35:51.528741"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/10
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users/" for 127.0.0.1 at 2022-11-03 19:35:51 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"20@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "20@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 20ms (Views: 6.5ms | ActiveRecord: 2.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:36:35 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 151ms (Views: 145.7ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 19:36:35 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (34.8ms)
+  Rendered spots/new.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 45ms (Views: 37.3ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/spots" for 127.0.0.1 at 2022-11-03 19:36:36 -0400
+Processing by SpotsController#create as HTML
+  Parameters: {"spot"=>{"time2leave"=>"20", "latitude"=>"20", "longitude"=>"20"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 20], ["latitude", "20.0"], ["longitude", "20.0"], ["created_at", "2022-11-03 23:36:36.022456"], ["updated_at", "2022-11-03 23:36:36.022456"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/11
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users/" for 127.0.0.1 at 2022-11-03 19:36:36 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"20@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "20@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 20ms (Views: 6.6ms | ActiveRecord: 2.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 30], ["latitude", "40.807346"], ["longitude", "-73.960714"], ["created_at", "2022-11-03 23:38:39.467331"], ["updated_at", "2022-11-03 23:38:39.467331"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 120], ["latitude", "40.808479"], ["longitude", "-73.963412"], ["created_at", "2022-11-03 23:38:39.468603"], ["updated_at", "2022-11-03 23:38:39.468603"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 1], ["latitude", "40.804792"], ["longitude", "-73.964156"], ["created_at", "2022-11-03 23:38:39.469388"], ["updated_at", "2022-11-03 23:38:39.469388"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 99], ["latitude", "40.806054"], ["longitude", "-73.961227"], ["created_at", "2022-11-03 23:38:39.470117"], ["updated_at", "2022-11-03 23:38:39.470117"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:38:39.470850"], ["updated_at", "2022-11-03 23:38:39.470850"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 115ms (Views: 111.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "spots"[0m
+Started GET "/spots/1" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 30], ["latitude", "40.807346"], ["longitude", "-73.960714"], ["created_at", "2022-11-03 23:38:39.600980"], ["updated_at", "2022-11-03 23:38:39.600980"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 120], ["latitude", "40.808479"], ["longitude", "-73.963412"], ["created_at", "2022-11-03 23:38:39.601981"], ["updated_at", "2022-11-03 23:38:39.601981"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 1], ["latitude", "40.804792"], ["longitude", "-73.964156"], ["created_at", "2022-11-03 23:38:39.602827"], ["updated_at", "2022-11-03 23:38:39.602827"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 99], ["latitude", "40.806054"], ["longitude", "-73.961227"], ["created_at", "2022-11-03 23:38:39.603633"], ["updated_at", "2022-11-03 23:38:39.603633"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:38:39.604427"], ["updated_at", "2022-11-03 23:38:39.604427"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "spots"[0m
+Started GET "/spots/1/edit" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by SpotsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 30], ["latitude", "40.807346"], ["longitude", "-73.960714"], ["created_at", "2022-11-03 23:38:39.613151"], ["updated_at", "2022-11-03 23:38:39.613151"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 120], ["latitude", "40.808479"], ["longitude", "-73.963412"], ["created_at", "2022-11-03 23:38:39.614017"], ["updated_at", "2022-11-03 23:38:39.614017"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 1], ["latitude", "40.804792"], ["longitude", "-73.964156"], ["created_at", "2022-11-03 23:38:39.614817"], ["updated_at", "2022-11-03 23:38:39.614817"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 99], ["latitude", "40.806054"], ["longitude", "-73.961227"], ["created_at", "2022-11-03 23:38:39.615628"], ["updated_at", "2022-11-03 23:38:39.615628"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:38:39.616495"], ["updated_at", "2022-11-03 23:38:39.616495"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "spots"[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (4.8ms)
+  Rendered spots/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+Started POST "/spots" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "spot"=>{"time2leave"=>"10", "latitude"=>"40", "longitude"=>"-15"}, "commit"=>"Create Spot"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:38:39.636356"], ["updated_at", "2022-11-03 23:38:39.636356"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/27
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+Started GET "/spots/27" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 13ms (Views: 5.9ms | ActiveRecord: 1.8ms)
+Started POST "/users" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"1234@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "1234@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "1234@gmail.com"], ["encrypted_password", "$2a$04$l8I37Ps.VrA0eIl5P4x04.MACD5Tb6XWOsdupZAGI2aiyrNzPiARe"], ["created_at", "2022-11-03 23:38:39.670673"], ["updated_at", "2022-11-03 23:38:39.670673"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 9ms (ActiveRecord: 1.1ms)
+Started GET "/" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"amin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "amin@admin"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"amin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+Started GET "/" for 127.0.0.1 at 2022-11-03 19:38:39 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.5ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 30], ["latitude", "40.807346"], ["longitude", "-73.960714"], ["created_at", "2022-11-03 23:44:40.421762"], ["updated_at", "2022-11-03 23:44:40.421762"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 120], ["latitude", "40.808479"], ["longitude", "-73.963412"], ["created_at", "2022-11-03 23:44:40.423482"], ["updated_at", "2022-11-03 23:44:40.423482"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 1], ["latitude", "40.804792"], ["longitude", "-73.964156"], ["created_at", "2022-11-03 23:44:40.424352"], ["updated_at", "2022-11-03 23:44:40.424352"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 99], ["latitude", "40.806054"], ["longitude", "-73.961227"], ["created_at", "2022-11-03 23:44:40.425163"], ["updated_at", "2022-11-03 23:44:40.425163"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:44:40.426095"], ["updated_at", "2022-11-03 23:44:40.426095"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 115ms (Views: 110.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "spots"[0m
+Started GET "/spots/1" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 30], ["latitude", "40.807346"], ["longitude", "-73.960714"], ["created_at", "2022-11-03 23:44:40.555312"], ["updated_at", "2022-11-03 23:44:40.555312"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 120], ["latitude", "40.808479"], ["longitude", "-73.963412"], ["created_at", "2022-11-03 23:44:40.556204"], ["updated_at", "2022-11-03 23:44:40.556204"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 1], ["latitude", "40.804792"], ["longitude", "-73.964156"], ["created_at", "2022-11-03 23:44:40.556997"], ["updated_at", "2022-11-03 23:44:40.556997"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 99], ["latitude", "40.806054"], ["longitude", "-73.961227"], ["created_at", "2022-11-03 23:44:40.557707"], ["updated_at", "2022-11-03 23:44:40.557707"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:44:40.558407"], ["updated_at", "2022-11-03 23:44:40.558407"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "spots"[0m
+Started GET "/spots/1/edit" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by SpotsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 30], ["latitude", "40.807346"], ["longitude", "-73.960714"], ["created_at", "2022-11-03 23:44:40.567373"], ["updated_at", "2022-11-03 23:44:40.567373"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 120], ["latitude", "40.808479"], ["longitude", "-73.963412"], ["created_at", "2022-11-03 23:44:40.568168"], ["updated_at", "2022-11-03 23:44:40.568168"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 1], ["latitude", "40.804792"], ["longitude", "-73.964156"], ["created_at", "2022-11-03 23:44:40.568886"], ["updated_at", "2022-11-03 23:44:40.568886"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 99], ["latitude", "40.806054"], ["longitude", "-73.961227"], ["created_at", "2022-11-03 23:44:40.569597"], ["updated_at", "2022-11-03 23:44:40.569597"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:44:40.570324"], ["updated_at", "2022-11-03 23:44:40.570324"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "spots"[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (5.1ms)
+  Rendered spots/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+Started POST "/spots" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "spot"=>{"time2leave"=>"10", "latitude"=>"40", "longitude"=>"-15"}, "commit"=>"Create Spot"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:44:40.591404"], ["updated_at", "2022-11-03 23:44:40.591404"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/43
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+Started GET "/spots/43" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"43"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 13ms (Views: 5.8ms | ActiveRecord: 1.7ms)
+Started POST "/users" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"1234@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "1234@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "1234@gmail.com"], ["encrypted_password", "$2a$04$V5YEkX3iVoR6ks5Z27Gek.j/GBh3EYnquMAgYu2uDVdTThMDvbyze"], ["created_at", "2022-11-03 23:44:40.626109"], ["updated_at", "2022-11-03 23:44:40.626109"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 9ms (ActiveRecord: 2.4ms)
+Started GET "/" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"amin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "amin@admin"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"amin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+Started GET "/" for 127.0.0.1 at 2022-11-03 19:44:40 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 1], ["time2leave", 30], ["latitude", "40.807346"], ["longitude", "-73.960714"], ["created_at", "2022-11-03 23:48:53.291388"], ["updated_at", "2022-11-03 23:48:53.291388"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 2], ["time2leave", 120], ["latitude", "40.808479"], ["longitude", "-73.963412"], ["created_at", "2022-11-03 23:48:53.292916"], ["updated_at", "2022-11-03 23:48:53.292916"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 3], ["time2leave", 1], ["latitude", "40.804792"], ["longitude", "-73.964156"], ["created_at", "2022-11-03 23:48:53.293935"], ["updated_at", "2022-11-03 23:48:53.293935"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 4], ["time2leave", 99], ["latitude", "40.806054"], ["longitude", "-73.961227"], ["created_at", "2022-11-03 23:48:53.294882"], ["updated_at", "2022-11-03 23:48:53.294882"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 5], ["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:48:53.295729"], ["updated_at", "2022-11-03 23:48:53.295729"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 99ms (Views: 94.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "spots"[0m
+Started GET "/spots/1" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 1], ["time2leave", 30], ["latitude", "40.807346"], ["longitude", "-73.960714"], ["created_at", "2022-11-03 23:48:53.426643"], ["updated_at", "2022-11-03 23:48:53.426643"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 2], ["time2leave", 120], ["latitude", "40.808479"], ["longitude", "-73.963412"], ["created_at", "2022-11-03 23:48:53.427683"], ["updated_at", "2022-11-03 23:48:53.427683"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 3], ["time2leave", 1], ["latitude", "40.804792"], ["longitude", "-73.964156"], ["created_at", "2022-11-03 23:48:53.428525"], ["updated_at", "2022-11-03 23:48:53.428525"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.1ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 4], ["time2leave", 99], ["latitude", "40.806054"], ["longitude", "-73.961227"], ["created_at", "2022-11-03 23:48:53.429363"], ["updated_at", "2022-11-03 23:48:53.429363"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 5], ["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:48:53.430281"], ["updated_at", "2022-11-03 23:48:53.430281"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "spots"[0m
+Started GET "/spots/1/edit" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering spots/edit.html.erb within layouts/application
+  Rendered spots/_form.html.erb (7.1ms)
+  Rendered spots/edit.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.2ms)
+Started PATCH "/spots/1" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#update as HTML
+  Parameters: {"utf8"=>"✓", "spot"=>{"time2leave"=>"15", "latitude"=>"50", "longitude"=>"-80"}, "commit"=>"Update Spot", "id"=>"1"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Update (0.3ms)[0m  [1m[33mUPDATE "spots" SET "time2leave" = $1, "latitude" = $2, "longitude" = $3, "updated_at" = $4 WHERE "spots"."id" = $5[0m  [["time2leave", 15], ["latitude", "50.0"], ["longitude", "-80.0"], ["updated_at", "2022-11-03 23:48:53.458219"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/1
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+Started GET "/spots/1" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 1], ["time2leave", 30], ["latitude", "40.807346"], ["longitude", "-73.960714"], ["created_at", "2022-11-03 23:48:53.468070"], ["updated_at", "2022-11-03 23:48:53.468070"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 2], ["time2leave", 120], ["latitude", "40.808479"], ["longitude", "-73.963412"], ["created_at", "2022-11-03 23:48:53.469186"], ["updated_at", "2022-11-03 23:48:53.469186"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 3], ["time2leave", 1], ["latitude", "40.804792"], ["longitude", "-73.964156"], ["created_at", "2022-11-03 23:48:53.470144"], ["updated_at", "2022-11-03 23:48:53.470144"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 4], ["time2leave", 99], ["latitude", "40.806054"], ["longitude", "-73.961227"], ["created_at", "2022-11-03 23:48:53.471271"], ["updated_at", "2022-11-03 23:48:53.471271"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("id", "time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 5], ["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:48:53.472137"], ["updated_at", "2022-11-03 23:48:53.472137"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "spots"[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (1.0ms)
+  Rendered spots/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/spots" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "spot"=>{"time2leave"=>"10", "latitude"=>"40", "longitude"=>"-15"}, "commit"=>"Create Spot"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 10], ["latitude", "40.0"], ["longitude", "-15.0"], ["created_at", "2022-11-03 23:48:53.488057"], ["updated_at", "2022-11-03 23:48:53.488057"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/44
+Completed 302 Found in 1ms (ActiveRecord: 0.4ms)
+Started GET "/spots/44" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 13ms (Views: 5.8ms | ActiveRecord: 1.8ms)
+Started POST "/users" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"1234@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "1234@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "1234@gmail.com"], ["encrypted_password", "$2a$04$0W92Sg1u/PiWDh.27j9VveXaesSUYFX/jtl9UxZ7lpvQhC9myRbs."], ["created_at", "2022-11-03 23:48:53.518974"], ["updated_at", "2022-11-03 23:48:53.518974"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms)
+Started GET "/" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Started POST "/users/sign_in" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"amin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "amin@admin"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"amin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms)
+Started GET "/" for 127.0.0.1 at 2022-11-03 19:48:53 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-11-03 19:49:14 -0400
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 108ms (Views: 103.3ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-11-03 19:49:14 -0400
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (6.8ms)
+  Rendered spots/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 15ms (Views: 9.1ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/spots" for 127.0.0.1 at 2022-11-03 19:49:14 -0400
+Processing by SpotsController#create as HTML
+  Parameters: {"spot"=>{"time2leave"=>"20", "latitude"=>"20", "longitude"=>"20"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", 20], ["latitude", "20.0"], ["longitude", "20.0"], ["created_at", "2022-11-03 23:49:14.884071"], ["updated_at", "2022-11-03 23:49:14.884071"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/45
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users/" for 127.0.0.1 at 2022-11-03 19:49:14 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"20@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "20@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 20ms (Views: 6.7ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("latitude", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["latitude", "20.0"], ["created_at", "2022-11-03 23:49:14.913473"], ["updated_at", "2022-11-03 23:49:14.913473"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m

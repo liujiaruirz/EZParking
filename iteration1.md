@@ -10,8 +10,10 @@ Instructions/Command lines:
 To run the product:
 0. install and start postgresql ('brew install postgresql' and 'brew services start postgresql' for Mac Users)
 1. bundle install
-2. rake db:migrate
-3. rails server
+2. rake db:create
+3. rake db:migrate
+4. rake db:seed
+5. rails server
 
 To test the product:
 1. Run bundle install --without production to make sure all gems are properly installed. 
@@ -20,6 +22,8 @@ To test the product:
 	bundle exec rake db:test:prepare
 3. Double check that RSpec is correctly set up by running rake spec
 4. Double check that Cucumber is correctly set up by running rake cucumber.
+5. To run BDD, bundle exec cucumber
+6. To run TDD, bundle exec rspec
 
 
 Heroku Deployment Link:
