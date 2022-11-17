@@ -6,7 +6,7 @@ class SpotsController < ApplicationController
     @spots = Spot.all
     @spots_list = []
     @spots.each do |spot|
-      @spots_list += [[spot.time2leave, spot.latitude, spot.longitude]]
+      @spots_list += [[time_in_sec(spot.time2leave), spot.latitude, spot.longitude]]
     end
   end
 
@@ -65,18 +65,30 @@ class SpotsController < ApplicationController
   def add_going
     cur_id = session[:session_id]
     spot_id = params[:format]
-    sessionSpotKey = spot_id+cur_id
-
-    if session[:sessionSpotKey]==nil
-      session[:sessionSpotKey] = true
+    spotValue = spot_id+cur_id
+    puts("******")
+    puts(spotValue)
+    if session[:spots]==nil
+      session[:spots]=Array.new
+    end
+    if session[:spots].include? spotValue
+      redirect_to spots_url, notice: "You have already added it. "
+    else
+      session[:spots].push(spotValue)
       @spot = Spot.find(spot_id)
       @spot.going = @spot.going+1
       @spot.save
       redirect_to spots_url, notice: "You successfully add it to your going. "
-    else
-      redirect_to spots_url, notice: "You have already added it. "
     end
-
+    # if session[:spots]==nil
+    #   session[:spots] = spotValue
+    #   @spot = Spot.find(spot_id)
+    #   @spot.going = @spot.going+1
+    #   @spot.save
+    #   redirect_to spots_url, notice: "You successfully add it to your going. "
+    # else
+    #   redirect_to spots_url, notice: "You have already added it. "
+    # end
     
   end
 
@@ -90,4 +102,11 @@ class SpotsController < ApplicationController
     def spot_params
       params.require(:spot).permit(:time2leave, :latitude, :longitude)
     end
+
+    # helper
+    def time_in_sec(time2leave)
+      inputTime = Time.new(time2leave.year, time2leave.month, time2leave.day, time2leave.hour, time2leave.min, time2leave.sec, "-05:00")
+      return inputTime - Time.now.in_time_zone("Eastern Time (US & Canada)")
+  end
 end
+

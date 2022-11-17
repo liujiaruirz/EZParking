@@ -54,7 +54,13 @@ RSpec.describe "Spots", type: :request do
       # expect(json[:latitude]).to eq(10)
 
   end
+  
 
+# described "#expired?" do
+#   it "return false if item is not expired and true if item is expired" do
+#     expect(item.expired?).to eq(false)    travel 5.day    expect(item.expired?).to eq(true)
+#   end
+# end
 end
 
 

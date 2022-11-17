@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/katherine/Desktop/EZParking/spec/controllers/spots_controller_spec.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/spec/controllers/spots_controller_spec.rb": {
         "lines": [
           1,
           null,
@@ -62,10 +62,16 @@
           null,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/spec/rails_helper.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
@@ -128,7 +134,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/environment.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -137,7 +143,7 @@
           1
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/application.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/application.rb": {
         "lines": [
           1,
           null,
@@ -160,7 +166,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/boot.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -168,7 +174,7 @@
           1
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/environments/test.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -218,7 +224,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/application_controller_renderer.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -230,7 +236,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/assets.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -248,7 +254,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/backtrace_silencers.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -259,7 +265,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/content_security_policy.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -288,7 +294,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/cookies_serializer.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -297,7 +303,7 @@
           1
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/devise.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/devise.rb": {
         "lines": [
           null,
           null,
@@ -612,7 +618,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/filter_parameter_logging.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -620,7 +626,7 @@
           1
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/inflections.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -640,7 +646,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/mime_types.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -648,7 +654,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/initializers/wrap_parameters.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -666,7 +672,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/config/routes.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/config/routes.rb": {
         "lines": [
           1,
           1,
@@ -684,7 +690,7 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/app/models/user.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -694,38 +700,155 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/app/models/application_record.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/app/helpers/application_helper.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/app/helpers/home_helper.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/app/helpers/home_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/app/helpers/lists_helper.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/app/helpers/lists_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/app/helpers/spots_helper.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/app/helpers/spots_helper.rb": {
         "lines": [
           1,
+          null,
+          1,
+          5,
+          5,
+          5,
+          2,
+          null,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          null,
+          3,
+          0,
+          null,
+          null,
+          3,
+          0,
+          null,
+          null,
+          3,
+          0,
+          null,
+          3,
+          2,
+          null,
+          3,
+          3,
+          null,
+          3,
+          2,
+          null,
+          null,
+          3,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/spec/models/spots_spec.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/spec/helpers/spots_helper_spec.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/spec/models/spots_spec.rb": {
         "lines": [
           1,
           null,
@@ -740,13 +863,13 @@
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/app/models/spot.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/app/models/spot.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/app/controllers/spots_controller.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/app/controllers/spots_controller.rb": {
         "lines": [
           1,
           1,
@@ -821,16 +944,28 @@
           1,
           1,
           null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
           null
         ]
       },
-      "/Users/katherine/Desktop/EZParking/app/controllers/application_controller.rb": {
+      "/Users/qinghanghong/Desktop/columbia/SaaS/EZParking/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          1,
+          null,
+          1,
+          4,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1667519354
+    "timestamp": 983614626
   }
 }

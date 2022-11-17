@@ -10,11 +10,11 @@ Background: spots data added to database
 
   Given the following spots exist:
   |id| time2leave | latitude  | longitude  |
-  |1 | 30         | 40.807346 | -73.960714 |
-  |2 | 120        | 40.808479 | -73.963412 |
-  |3 | 1          | 40.804792 | -73.964156 |
-  |4 | 99         | 40.806054 | -73.961227 |
-  |5 | 10         | 40.0      | -15.0      |
+  |1 | 2022-11-18 20:30:01    | 40.807346 | -73.960714 |
+  |2 | 2022-11-19 20:05:01    | 40.808479 | -73.963412 |
+  |3 | 2022-11-20 20:00:01    | 40.804792 | -73.964156 |
+  |4 | 2022-11-18 20:20:01    | 40.806054 | -73.961227 |
+  |5 | 2022-11-17 20:10:01    | 40.0      | -15.0      |
 
   Given  I am on the spots page
   Then 5 seed spots should exist
@@ -29,13 +29,12 @@ Then I should see "Longitude"
 
 Scenario: edit spot detail
 When I click Edit 
-And I fill in "Time2leave" with "15"
+And I fill in "dt" with "2022-11-17 20:18:01"
 And I fill in "Latitude" with "50"
 And I fill in "Longitude" with "-80"
 And I press "Update Spot"
-Then I should see "15" after "Time to Leave"
+Then I should see "2022-11-17 20:18:01" after "Time to Leave"
 Then I should see "Longitude"
-Then I should see "50.0" 
 And I should see "50.0" after "Latitude"
 And I should see "-80.0" after "Longitude"
 
@@ -47,10 +46,10 @@ And I should see "-80.0" after "Longitude"
 
 Scenario: add new spot
 When I click New Spot
-And I fill in "Time2leave" with "10"
-And I fill in "Latitude" with "40"
-And I fill in "Longitude" with "-15"
+And I fill in "dt" with "2022-11-25 20:10:05"
+And I fill in "Latitude" with "70"
+And I fill in "Longitude" with "-25"
 And I press "Create Spot"
-Then I should see "10" after "Time to Leave" 
-And I should see "40.0" after "Latitude"
-And I should see "-15.0" after "Longitude"
+Then I should see "2022-11-25 20:10:05" after "Time to Leave" 
+And I should see "70.0" after "Latitude"
+And I should see "-25.0" after "Longitude"
