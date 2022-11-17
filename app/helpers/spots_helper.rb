@@ -61,6 +61,6 @@ module SpotsHelper
 
     def time_in_sec(time2leave)
         inputTime = Time.new(time2leave.year, time2leave.month, time2leave.day, time2leave.hour, time2leave.min, time2leave.sec, "-05:00")
-        return inputTime - Time.now
+        return inputTime - Time.now.in_time_zone("Eastern Time (US & Canada)")
     end
 end
