@@ -33,7 +33,39 @@ Ruby version:             2.6.6-p146 (x86_64-darwin21)
 4. rake db:migrate
 5. rails server
 #### To test the product:
-bundle exec cucumber
-bundle exec rspec
+1. bundle exec cucumber
+2. bundle exec rspec
 ### Heroku Deployment Link:
 https://secure-scrubland-29494.herokuapp.com/
+
+## Iteration 2
+## Application Environment:
+Rails version             5.2.8.1
+Ruby version:             2.6.6-p146 (x86_64-darwin21)
+### Instructions/Command lines:
+#### To run the product:
+1. install and start postgresql ('brew install postgresql' and 'brew services start postgresql' for Mac Users)
+2. bundle install
+3. rake db:drop (If repo previous downloaded) 
+4. rake db:create
+5. rake db:migrate
+6. rails server
+#### To test the product:
+1. bundle exec cucumber
+2. bundle exec rspec
+### Heroku Deployment Link:
+https://secure-scrubland-29494.herokuapp.com/
+### User Stories/Features added:
+1. Parking spots available time changes as the time elapses
+2. Allows users to click "going" for parking spots and see number of people going for each spot
+3. Show address and information of each spot on the map
+
+## TODO
+1. reward system
+2. interactive spots details on map with onclick function (with more details redirect to _show_ page)
+3. dynamic time
+4. prevent non-authorization access
+5. modify _Edit_ page with parameters
+6. automatically delete outdated spots
+7. new spot with current location
+8. replace destroy with I occupied/someone occupied the spot

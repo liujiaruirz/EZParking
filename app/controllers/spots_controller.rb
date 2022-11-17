@@ -26,7 +26,7 @@ class SpotsController < ApplicationController
   # POST /spots or /spots.json
   def create
     @spot = Spot.new(spot_params)
-
+    @spot.going = 0
     respond_to do |format|
       if @spot.save
         format.html { redirect_to spot_url(@spot), notice: "Spot was successfully created." }
@@ -59,6 +59,37 @@ class SpotsController < ApplicationController
       format.html { redirect_to spots_url, notice: "Spot was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+
+  def add_going
+    cur_id = session[:session_id]
+    spot_id = params[:format]
+    spotValue = spot_id+cur_id
+    puts("******")
+    puts(spotValue)
+    if session[:spots]==nil
+      session[:spots]=Array.new
+    end
+    if session[:spots].include? spotValue
+      redirect_to spots_url, notice: "You have already added it. "
+    else
+      session[:spots].push(spotValue)
+      @spot = Spot.find(spot_id)
+      @spot.going = @spot.going+1
+      @spot.save
+      redirect_to spots_url, notice: "You successfully add it to your going. "
+    end
+    # if session[:spots]==nil
+    #   session[:spots] = spotValue
+    #   @spot = Spot.find(spot_id)
+    #   @spot.going = @spot.going+1
+    #   @spot.save
+    #   redirect_to spots_url, notice: "You successfully add it to your going. "
+    # else
+    #   redirect_to spots_url, notice: "You have already added it. "
+    # end
+    
   end
 
   private

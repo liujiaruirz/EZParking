@@ -15,6 +15,7 @@
   <thead>
     <tr>
       <th>Time to Leave</th>
+      <th>Going</th>
       <!-- <th>Latitude</th>
       <th>Longitude</th> -->
       <th colspan="3"></th>
@@ -26,6 +27,7 @@
     <% @spots.sort( & ascending_sort ).each do |spot| %>
       <tr>
         <td><%= time_difference(spot.time2leave) %></td>
+        <td><%= spot.going %></td>
         <!-- <td><%= spot.latitude %></td>
         <td><%= spot.longitude %></td> -->
         <td><%= link_to 'Show', spot %></td>
