@@ -2,9 +2,6 @@
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
       document.addEventListener("DOMContentLoaded", initMap2);
-      // var s = $("#dt").val();
-      var s = document.getElementById("dt")
-      console.log(s)
   </script>
 <% end %>
 
@@ -28,15 +25,15 @@
   </div>
 
   <div class="field">
-    <!-- <%= form.label :latitude %> -->
-    Latitude (drag marker on the map):
-    <%= form.text_field :latitude, type: "number", required: true, min: "-90", max: "90", step: "any", value: "40.807501" %>
+    <%= form.label :latitude %>
+    
+    <%= form.text_field :latitude, type: "number", id: "latitude", required: true, min: "-90", max: "90", step: "any", value: "40.807501" %>
   </div>
 
   <div class="field">
-    <!-- <%= form.label :longitude %> -->
-    Longitude (drag marker on the map):
-    <%= form.text_field :longitude, type: "number", required: true, min: "-180", max: "180", step: "any", value: "-73.962601" %>
+    <%= form.label :longitude %>
+    
+    <%= form.text_field :longitude, type: "number", id: "longitude",required: true, min: "-180", max: "180", step: "any", value: "-73.962601" %>
   </div>
 
   <p>

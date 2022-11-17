@@ -1,12 +1,14 @@
 require 'rails_helper'
+require 'date'
+
+
 RSpec.describe SpotsHelper, type: :helper do
-    let!(:item) { Item.create(:item, name: "Milk", expiration_date: 
-Time.current + 3.days) }
-    described "#expired?" do
-        it "return false if item is not expired and true if item is expired" do
-            expect(item.expired?).to eq(false)
-            travel 5.day    
-            expect(item.expired?).to eq(true)
+    describe "positive result" do
+        it "returns the number of minutes and seconds" do
+            spot_time = Time.zone.local(2022,11,23,4,5,6)
+            travel_to Time.zone.local(2022, 11, 23, 4, 6, 6)
+            expect(time_difference(spot_time)).to eq("1 mins") 
+            
         end
     end
 end

@@ -9751,3 +9751,342 @@ Processing by SpotsController#index as HTML
 Completed 200 OK in 228ms (Views: 213.9ms | ActiveRecord: 3.6ms)
 
 
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (62.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ezparking_development"[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (50.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ezparking_test"[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (159.1ms)[0m  [1m[35mCREATE DATABASE "ezparking_development" ENCODING = 'unicode'[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (83.3ms)[0m  [1m[35mCREATE DATABASE "ezparking_test" ENCODING = 'unicode'[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3915745637842652880)[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+Migrating to CreateSpots (20221030191855)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "spots" ("id" bigserial primary key, "time2leave" timestamp, "latitude" decimal, "longitude" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20221030191855_create_spots.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221030191855"]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+Migrating to DeviseCreateUsers (20221031235746)
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" text DEFAULT '' NOT NULL, "encrypted_password" text DEFAULT '' NOT NULL, "reset_password_token" text, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20221031235746_devise_create_users.rb:5
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20221031235746_devise_create_users.rb:39
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20221031235746_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221031235746"]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+Migrating to CreateLists (20221031235919)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "lists" ("id" bigserial primary key, "name" text, "idcard" text, "phone" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20221031235919_create_lists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221031235919"]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-17 02:56:23.947676"], ["updated_at", "2022-11-17 02:56:23.947676"]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3915745637842652880)[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/bin/rake:23
+Started GET "/" for ::1 at 2022-11-16 21:56:37 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 1804ms (Views: 1802.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-11-16 21:56:43 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (39.3ms)
+Completed 200 OK in 78ms (Views: 60.7ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/users" for ::1 at 2022-11-16 21:56:56 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G7xSW1aoVvfVEpdSOWvj2jbJ66bWVHjIfCz+tHpZCSKLhSlZdpr7fJxqOyOxbjv90uYabFaBPpG/nz+vJrozHA==", "user"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin.com"], ["encrypted_password", "$2a$12$/I6Xze.8gOiQ2Rg3fBC53e3QYYgr4/qNOfAKMYZwWqRko6su9wYzW"], ["created_at", "2022-11-17 02:56:56.894302"], ["updated_at", "2022-11-17 02:56:56.894302"]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 366ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2022-11-16 21:56:56 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.7ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 21:57:05 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (17.1ms)
+  Rendered spots/new.html.erb within layouts/application (19.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 57ms (Views: 44.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 21:57:05 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (3.4ms)
+  Rendered spots/new.html.erb within layouts/application (4.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/spots" for ::1 at 2022-11-16 21:57:51 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxflhEXD/nzJC5pyvfwG6UYlrSXiZ6fVsgvyenU5HnOMWgeSacVmMXReo7GmX6tGHalQp6SnCMyARrPdR9zaww==", "spot"=>{"time2leave"=>"2022-11-17T21:57", "latitude"=>"40.807501", "longitude"=>"-73.962601"}, "commit"=>"Create Spot"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:31
+  [1m[36mSpot Create (1.2ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", "2022-11-17 21:57:00"], ["latitude", "40.807501"], ["longitude", "-73.962601"], ["created_at", "2022-11-17 02:57:51.699936"], ["updated_at", "2022-11-17 02:57:51.699936"]]
+  ↳ app/controllers/spots_controller.rb:31
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:31
+Redirected to http://localhost:3000/spots/1
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/spots/1" for ::1 at 2022-11-16 21:57:51 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:67
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 25ms (Views: 21.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/spots" for ::1 at 2022-11-16 21:58:27 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/spots" for ::1 at 2022-11-16 21:58:27 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 27ms (Views: 23.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/spots" for ::1 at 2022-11-16 22:28:34 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 233ms (Views: 208.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 22:28:38 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (15.5ms)
+  Rendered spots/new.html.erb within layouts/application (17.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 56ms (Views: 54.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 22:28:38 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (1.6ms)
+  Rendered spots/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/spots" for ::1 at 2022-11-16 22:28:44 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7XgI2TIsgosYqFHN0Metab0+1exENfDlWtT56xCB1sVaNerPHioaxqX9aA7LZADG5rIobgL1X/xombhMImQSdQ==", "spot"=>{"time2leave"=>"2022-11-17T22:28", "latitude"=>"40.807501", "longitude"=>"-73.962601"}, "commit"=>"Create Spot"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:31
+  [1m[36mSpot Create (0.6ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", "2022-11-17 22:28:00"], ["latitude", "40.807501"], ["longitude", "-73.962601"], ["created_at", "2022-11-17 03:28:44.275233"], ["updated_at", "2022-11-17 03:28:44.275233"]]
+  ↳ app/controllers/spots_controller.rb:31
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:31
+Redirected to http://localhost:3000/spots/2
+Completed 302 Found in 4ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/spots/2" for ::1 at 2022-11-16 22:28:44 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:67
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/spots" for ::1 at 2022-11-16 22:28:58 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/spots" for ::1 at 2022-11-16 22:28:58 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 22:29:02 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (4.7ms)
+  Rendered spots/new.html.erb within layouts/application (7.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 22:29:02 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.1ms)
+  Rendered spots/new.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 22:29:50 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (11.0ms)
+  Rendered spots/new.html.erb within layouts/application (12.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 218ms (Views: 195.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 22:31:41 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (15.4ms)
+  Rendered spots/new.html.erb within layouts/application (17.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 258ms (Views: 232.0ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/" for ::1 at 2022-11-16 23:01:39 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 187ms (Views: 178.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 23:01:42 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (15.6ms)
+  Rendered spots/new.html.erb within layouts/application (17.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-16 23:01:42 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (1.9ms)
+  Rendered spots/new.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.2ms)
+
+
