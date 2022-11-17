@@ -26,4 +26,11 @@ RSpec.describe SpotsController, type: :controller do
       spot.destroy
     end
   end
+  
+
+# described "#expired?" do
+#   it "return false if item is not expired and true if item is expired" do
+#     expect(item.expired?).to eq(false)    travel 5.day    expect(item.expired?).to eq(true)
+#   end
+# end
 end
