@@ -57,3 +57,4 @@ https://secure-scrubland-29494.herokuapp.com/
 ### User Stories/Features added:
 1. Parking spots available time changes as the time elapses
 2. Allows users to click "going" for parking spots and see number of people going for each spot
+3. Show address and information of each spot on the map
