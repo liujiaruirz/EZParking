@@ -47,10 +47,8 @@ Ruby version:             2.6.6-p146 (x86_64-darwin21)
 1. install and start postgresql ('brew install postgresql' and 'brew services start postgresql' for Mac Users)
 2. bundle install
 3. rake db:drop (If you have previous run the app) 
-4. rake db:create
-5. rake db:migrate
-6. rake db:seed (to add initial records)
-7. rails server
+4. rake db:create db:migrate db:seed
+5. rails server
 #### To test the product:
 1. bundle exec cucumber
 2. bundle exec rspec
