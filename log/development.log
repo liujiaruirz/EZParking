@@ -17027,3 +17027,154 @@ Processing by SpotsController#index as HTML
 Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/spots" for ::1 at 2022-11-17 00:13:37 -0500
+Started GET "/spots" for ::1 at 2022-11-17 00:13:37 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jerry/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ /Users/jerry/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (1.7ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  [1m[36mSpot Load (0.9ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (5.2ms)
+  Rendered spots/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 470ms (Views: 427.0ms | ActiveRecord: 16.2ms)
+
+
+Completed 200 OK in 508ms (Views: 459.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-17 00:13:39 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (65.3ms)
+  Rendered spots/new.html.erb within layouts/application (68.6ms)
+Completed 200 OK in 154ms (Views: 149.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-17 00:13:39 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.4ms)
+  Rendered spots/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 44ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/spots" for ::1 at 2022-11-17 00:13:53 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H4dIxdnSLqNkao6IpStovQW+/enJ0+a+y4vesHyoDY8M4cmbzhVTPbDPMXK/CKxlSNQLwc5cio23VXzDfH7/Mw==", "spot"=>{"time2leave"=>"2022-11-18T00:13", "latitude"=>"40.804878", "longitude"=>"-73.966243"}, "commit"=>"Create Spot"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:31
+  [1m[36mSpot Create (0.8ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", "2022-11-18 00:13:00"], ["latitude", "40.804878"], ["longitude", "-73.966243"], ["created_at", "2022-11-17 05:13:53.998642"], ["updated_at", "2022-11-17 05:13:53.998642"]]
+  ↳ app/controllers/spots_controller.rb:31
+  [1m[35m (42.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:31
+Redirected to http://localhost:3000/spots/8
+Completed 302 Found in 48ms (ActiveRecord: 43.8ms)
+
+
+Started GET "/spots/8" for ::1 at 2022-11-17 00:13:54 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:67
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 28ms (Views: 22.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/spots/8" for ::1 at 2022-11-17 00:14:53 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mSpot Load (1.0ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:67
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 43ms (Views: 39.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/spots" for ::1 at 2022-11-17 00:14:57 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.5ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 62ms (Views: 58.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/spots" for ::1 at 2022-11-17 00:14:57 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-17 00:14:59 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (4.6ms)
+  Rendered spots/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 53ms (Views: 47.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-11-17 00:14:59 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.9ms)
+  Rendered spots/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/spots" for ::1 at 2022-11-17 00:15:05 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Mm0uWxlN7gVKlSS+aBrjiVOlFCgRxXwgYTeAl2PHeYkhC68FDoqTm54wm0RyOSdRHs/iABZKEBMd6SLkYxGLNQ==", "spot"=>{"time2leave"=>"2022-11-26T00:15", "latitude"=>"40.807501", "longitude"=>"-73.962601"}, "commit"=>"Create Spot"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:31
+  [1m[36mSpot Create (0.4ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["time2leave", "2022-11-26 00:15:00"], ["latitude", "40.807501"], ["longitude", "-73.962601"], ["created_at", "2022-11-17 05:15:05.604551"], ["updated_at", "2022-11-17 05:15:05.604551"]]
+  ↳ app/controllers/spots_controller.rb:31
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:31
+Redirected to http://localhost:3000/spots/9
+Completed 302 Found in 45ms (ActiveRecord: 41.1ms)
+
+
+Started GET "/spots/9" for ::1 at 2022-11-17 00:15:05 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:67
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spots/9" for ::1 at 2022-11-17 00:15:43 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:67
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 53ms (Views: 50.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2022-11-17 01:44:22 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/katherine/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/katherine/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  ↳ app/controllers/spots_controller.rb:8
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 248ms (Views: 236.0ms | ActiveRecord: 2.3ms)
+
+

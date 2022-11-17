@@ -148,6 +148,10 @@ function initMap(time, lat, lng) {
         map: map,
         icon: markerStyle(time)
     });
+
+    var geocoder = new google.maps.Geocoder();
+    var infowindow = new google.maps.InfoWindow();
+    geocodeLatLng(geocoder, map, infowindow, myCoords, time, marker);
 }
     
 // the functionalities (drag markers, default coords) refers to https://pjbelo.medium.com/using-google-maps-api-v3-with-rails-5-2-b066a4b2cf14
