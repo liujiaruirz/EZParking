@@ -53,3 +53,15 @@ And I press "Create Spot"
 Then I should see "2022-11-25 20:10:05" after "Time to Leave" 
 And I should see "70.0" after "Latitude"
 And I should see "-25.0" after "Longitude"
+
+
+Scenario: add new spot and show address
+When I click New Spot
+And I fill in "dt" with "2022-11-28 20:17:05"
+And I fill in "Latitude" with "40.808479"
+And I fill in "Longitude" with "-73.963412"
+And I press "Create Spot"
+Then I should see "2022-11-28 20:17:05" after "Time to Leave" 
+And I should see "40.808479" after "Latitude"
+And I should see "-73.963412" after "Longitude"
+And I should see "2966 Broadway, New York, NY 10027, US"
