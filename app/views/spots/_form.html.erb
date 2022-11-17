@@ -2,6 +2,9 @@
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
       document.addEventListener("DOMContentLoaded", initMap2);
+      // var s = $("#dt").val();
+      var s = document.getElementById("dt")
+      console.log(s)
   </script>
 <% end %>
 
@@ -19,18 +22,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :time2leave %>
-    <%= form.number_field :time2leave, type: "number", required: true, min: "0"%>
+    <!-- <%= form.label :time2leave %>  -->
+    Enter your leaving date and time:
+    <%= form.number_field :time2leave, type: "datetime-local", id: "dt", required: true %>
   </div>
 
   <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, type: "number", required: true, min: "-90", max: "90", step: "any" %>
+    <!-- <%= form.label :latitude %> -->
+    Latitude (drag marker on the map):
+    <%= form.text_field :latitude, type: "number", required: true, min: "-90", max: "90", step: "any", value: "40.807501" %>
   </div>
 
   <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, type: "number", required: true, min: "-180", max: "180", step: "any"  %>
+    <!-- <%= form.label :longitude %> -->
+    Longitude (drag marker on the map):
+    <%= form.text_field :longitude, type: "number", required: true, min: "-180", max: "180", step: "any", value: "-73.962601" %>
   </div>
 
   <p>

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Spot.create!([
-{"time2leave": "10", "latitude": "40.809893", "longitude": "-73.960547"},
-{"time2leave": "30", "latitude": "40.807346", "longitude": "-73.960714"},
-{"time2leave": "120", "latitude": "40.808479", "longitude": "-73.963412"}
+{"time2leave": '2022-11-20 20:51:14', "latitude": "40.809893", "longitude": "-73.960547"},
+{"time2leave": '2022-11-19 17:33:29', "latitude": "40.807346", "longitude": "-73.960714"},
+{"time2leave": '2022-12-16 00:51:14', "latitude": "40.808479", "longitude": "-73.963412"}
 ])

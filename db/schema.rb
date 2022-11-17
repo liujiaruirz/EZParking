@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_10_31_235919) do
   end
 
   create_table "spots", force: :cascade do |t|
-    t.integer "time2leave"
+    t.datetime "time2leave"
     t.decimal "latitude"
     t.decimal "longitude"
     t.datetime "created_at", null: false

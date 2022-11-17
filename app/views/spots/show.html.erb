@@ -2,7 +2,7 @@
   <meta name='turbolinks-visit-control' content='reload'>
   <script>
     document.addEventListener("DOMContentLoaded", function(){
-      initMap(<%=@spot.time2leave%>, <%=@spot.latitude%>, <%=@spot.longitude%>)
+      initMap(<%=time_in_sec(@spot.time2leave)%>, <%=@spot.latitude%>, <%=@spot.longitude%>)
     });
   </script>
 <% end %>
@@ -12,7 +12,7 @@
 
 <p>
   <strong>Time to Leave:</strong>
-  <%= @spot.time2leave %>
+  <%= time_parser(@spot.time2leave) %>
 </p>
 
 <p>

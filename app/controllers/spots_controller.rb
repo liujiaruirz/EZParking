@@ -6,7 +6,7 @@ class SpotsController < ApplicationController
     @spots = Spot.all
     @spots_list = []
     @spots.each do |spot|
-      @spots_list += [[spot.time2leave, spot.latitude, spot.longitude]]
+      @spots_list += [[time_in_sec(spot.time2leave), spot.latitude, spot.longitude]]
     end
   end
 
@@ -71,4 +71,11 @@ class SpotsController < ApplicationController
     def spot_params
       params.require(:spot).permit(:time2leave, :latitude, :longitude)
     end
+
+    # helper
+    def time_in_sec(time2leave)
+      inputTime = Time.new(time2leave.year, time2leave.month, time2leave.day, time2leave.hour, time2leave.min, time2leave.sec, "-05:00")
+      return inputTime - Time.now
+  end
 end
+

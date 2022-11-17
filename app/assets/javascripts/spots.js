@@ -46,27 +46,32 @@ var styleArray = [
     }
 ]
 
-function markerStyle(time2leave) {
-    if (time2leave < 10) {
+function markerStyle(remainingT) {
+    if (remainingT < 900) {
         var icon = {
             url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
         }
     }
-    else if (10 <= time2leave && time2leave < 30) {
+    else if (900 <= remainingT && remainingT < 7200) {
         var icon = {
             url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
         }
     }
-    else if (time2leave >= 30) {
+    else if (7200 <= remainingT && remainingT < 21600) {
         var icon = {
             url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+        }
+    }
+    else if (remainingT >= 21600) {
+        var icon = {
+            url: "http://maps.google.com/mapfiles/ms/icons/purple-dot.png"
         }
     }
     return icon;
 }
 
 function indexMap(spots_l) {
-    var centerCoords = new google.maps.LatLng(40.8075, -73.9626);
+    var centerCoords = new google.maps.LatLng(40.807501, -73.962601);
     var mapOptions = {
     styles: styleArray,
     center: centerCoords,
@@ -107,8 +112,8 @@ function initMap2() {
     
     // if not defined create default position
     if (!lat || !lng){
-        lat=40.8075;
-        lng=-73.9626;
+        lat=40.807501;
+        lng=-73.962601;
         document.getElementById('spot_latitude').value = lat;
         document.getElementById('spot_longitude').value = lng;
     }
