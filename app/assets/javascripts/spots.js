@@ -78,16 +78,62 @@ function indexMap(spots_l) {
     zoom: 17
     };
     var map = new google.maps.Map(document.getElementById('indexMap'), mapOptions);
+    // var markers =  
     for (let i = 0; i < spots_l.length; i++) {
         spotCoords = new google.maps.LatLng(spots_l[i][1], spots_l[i][2]);
+        var geocoder = new google.maps.Geocoder();
+        var infowindow = new google.maps.InfoWindow();
         
         var marker = new google.maps.Marker({
             position: spotCoords,
             map: map,
             icon: markerStyle(spots_l[i][0])
         });
+
+        // google.maps.event.addListener(marker, 'click', function() {
+            // your magic goes here
+            // map.setCenter(marker.getPosition());
+        geocodeLatLng(geocoder, map, infowindow, spotCoords, spots_l[i][0], marker);
+        // });
     }
+
+    // for (let i = 0; i < marker_list.length; i++) {
+        
+    //     marker_list[i].addListener("click", () => {
+    //         // map.setZoom(8);
+    //         map.setCenter(marker.getPosition());
+    //         geocodeLatLng(geocoder, map, infowindow, spotCoords, spots_l[i][0]);
+    //       });
+    // }
+        // google.maps.event.addListener(marker,'click',function() {
+        //     // map.setZoom(9);
+        //     map.setCenter(marker.getPosition());
+        //     geocodeLatLng(geocoder, map, infowindow, spotCoords, spots_l[i][0]);
+        // }); 
+    
 }
+
+function geocodeLatLng(geocoder, map, infowindow, spotCoords, t, marker) {
+    // const input = document.getElementById("latlng").value;
+    // const latlngStr = input.split(",", 2);
+    var latlng = spotCoords;
+  
+    geocoder
+      .geocode({ location: latlng })
+      .then((response) => {
+        if (response.results[0]) {
+        //   map.setZoom(11);
+  
+  
+          infowindow.setContent('<b>Address</b>: '+response.results[0].formatted_address+'<br>'+'<b>Time to Leave: </b>' + time_difference(t));
+          infowindow.open(map, marker);
+        } else {
+          console.log("No location details found");
+        }
+      })
+    //   .catch((e) => window.alert("Some of Geocoders failed due to: " + e));
+      .catch((e) => console.error(e));
+  }
 
 function initMap(time, lat, lng) {
     var myCoords = new google.maps.LatLng(lat, lng);
@@ -152,4 +198,61 @@ function initMap2() {
     marker.addListener('dragend', function() {
         map.panTo(marker.getPosition());   
     });
+}
+
+
+function time_difference(difference) {
+        
+    if (difference < 0) {
+        return 'Available Now'
+    }
+
+    differenceInYears = Math.floor(difference / (60 * 60 * 24 * 30 * 12))
+
+    difference -= differenceInYears * (60 * 60 * 24 * 30 * 12)
+
+    differenceInMonths = Math.floor(difference / (60 * 60 * 24 * 30))
+
+    difference -= differenceInMonths * (60 * 60 * 24 * 30)
+
+    differenceInDays = Math.floor(difference / (60 * 60 * 24))
+
+    difference -= differenceInDays * (60 * 60 * 24)
+    
+    differenceInHours = Math.floor(difference / (60 * 60))
+
+    difference -= differenceInHours * (60 * 60)
+    
+    differenceInMinutes = Math.floor(difference / 60)
+
+    difference -= differenceInMinutes * 60
+    
+    differenceInSeconds = Math.floor(difference)
+
+    var out = ''
+    console.log(differenceInDays)
+
+    if (differenceInYears > 0) {
+    out += differenceInYears.toString() + " years "
+    }
+
+    if (differenceInMonths > 0) {
+    out += differenceInMonths.toString() + " months "
+    }
+
+    if (differenceInDays > 0) {
+    out += differenceInDays.toString() + " days "
+    }
+
+    if (differenceInHours > 0) {
+    out += differenceInHours.toString() + " hours "
+    }
+    if (differenceInMinutes > 0) {
+    out += differenceInMinutes.toString() + " mins "
+    }
+    if (differenceInSeconds > 0) {
+    out += differenceInSeconds.toString() + " secs "
+    }
+    
+    return out
 }
