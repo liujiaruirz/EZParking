@@ -44,4 +44,15 @@ class SpotsTest < ApplicationSystemTestCase
 
     assert_text "Spot was successfully destroyed"
   end
+
+
+  # test "add going to arrive" do
+  #   visit spots_url
+  #   click_on "Show"
+  #   click_on "Going", match: :first
+
+  #   assert_text "You successfully add it to your going."
+  # end
+
+  
 end

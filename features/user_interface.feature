@@ -33,6 +33,14 @@ Then I should see "Invalid Email or password."
 
 
 Scenario: log out of my account
-Given  I am on the spots page
+Given I am on the spots page
 When I click logout 
 Then I should see "Welcome to EZParking!"
+
+Scenario: Login
+Given a valid user
+When I go to the sign in page
+And I fill in "Email" with "amin@admin"
+And I fill in "Password" with "123456"
+And I press "Log in" 
+Then I should see "Signed in successfully."
