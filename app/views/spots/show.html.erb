@@ -29,6 +29,7 @@
     <div id="map"></div>
 </p>
 
-<%= link_to 'Edit', edit_spot_path(@spot) %> |
+<!-- <%= link_to 'Edit', edit_spot_path(@spot) %> | -->
 <%= link_to 'Back', spots_path %> |
-<%= link_to 'Going', add_going_spots_path(@spot)%>
+<%= link_to 'Going', add_going_spots_path(@spot)%> |
+<%= link_to 'Taken', @spot, method: :delete, data: { confirm: 'Are you sure?' } %>
