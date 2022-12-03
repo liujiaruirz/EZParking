@@ -40,6 +40,21 @@ end
 #     expect(page).to have_content(content)
 # end
 
+
+When /^(?:|I )follow the first "([^"]*)"$/ do |link|
+  click_link(link, :match => :first)
+end
+
 When /^(?:|I )click (.+)$/ do |page_name|
     visit path_to(page_name)
 end
+
+Given /^a valid spot$/ do
+  @spot = Spot.create!({
+             :latitude => "80",
+             :longitude => "40",
+             :time2leave => "2023-10-25 09:10:30",
+             :going => "0"
+           })
+end
+

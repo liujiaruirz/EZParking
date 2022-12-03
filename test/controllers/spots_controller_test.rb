@@ -45,4 +45,7 @@ class SpotsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to spots_url
   end
+
+
 end
+

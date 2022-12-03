@@ -65,20 +65,28 @@ class SpotsController < ApplicationController
   def add_going
     cur_id = session[:session_id]
     spot_id = params[:format]
-    spotValue = spot_id+cur_id
-    puts("******")
-    puts(spotValue)
+    # spotValue = spot_id+cur_id
+    spotValue = spot_id
     if session[:spots]==nil
       session[:spots]=Array.new
     end
     if session[:spots].include? spotValue
       redirect_to spots_url, notice: "You have already added it. "
+      # respond_to do |format|
+      #   format.html { redirect_to spots_url, notice: "You have already added it." }
+      #   format.json { head :no_content }
+      # end
     else
       session[:spots].push(spotValue)
       @spot = Spot.find(spot_id)
       @spot.going = @spot.going+1
       @spot.save
       redirect_to spots_url, notice: "You successfully add it to your going. "
+      
+      # respond_to do |format|
+      #   format.html { redirect_to spots_url, notice: "You successfully add it to your going." }
+      #   format.json { head :no_content }
+      # end
     end
     # if session[:spots]==nil
     #   session[:spots] = spotValue
