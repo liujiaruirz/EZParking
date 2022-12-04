@@ -3,7 +3,10 @@ class SpotsController < ApplicationController
 
   # GET /spots or /spots.json
   def index
-    @spots = Spot.all
+    @user = User.find(current_user.id)
+    # puts("**********")
+    # puts(@user.points)
+    @spots = Spot.limit(@user.points)
     @spots_list = []
     @spots.each do |spot|
       @spots_list += [[time_in_sec(spot.time2leave), spot.latitude, spot.longitude]]
@@ -12,6 +15,7 @@ class SpotsController < ApplicationController
 
   # GET /spots/1 or /spots/1.json
   def show
+    # @user = User.find(current_user.id)
   end
 
   # GET /spots/new
@@ -21,16 +25,26 @@ class SpotsController < ApplicationController
 
   # GET /spots/1/edit
   def edit
+    puts(@spot.latitude)
+    puts(@spot.user)
+    if @spot.user!=current_user.id
+      redirect_to spots_url, notice: "Yor are not authorized to edit this spot."
+    end
   end
 
   # POST /spots or /spots.json
   def create
     @spot = Spot.new(spot_params)
     @spot.going = 0
+    @spot.user = current_user.id
     respond_to do |format|
       if @spot.save
         format.html { redirect_to spot_url(@spot), notice: "Spot was successfully created." }
         format.json { render :show, status: :created, location: @spot }
+        #add 1 point to user
+        @user = User.find(current_user.id)
+        @user.points = @user.points+1
+        @user.save
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @spot.errors, status: :unprocessable_entity }
@@ -44,6 +58,7 @@ class SpotsController < ApplicationController
       if @spot.update(spot_params)
         format.html { redirect_to spot_url(@spot), notice: "Spot was successfully updated." }
         format.json { render :show, status: :ok, location: @spot }
+
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @spot.errors, status: :unprocessable_entity }
@@ -72,10 +87,6 @@ class SpotsController < ApplicationController
     end
     if session[:spots].include? spotValue
       redirect_to spots_url, notice: "You have already added it. "
-      # respond_to do |format|
-      #   format.html { redirect_to spots_url, notice: "You have already added it." }
-      #   format.json { head :no_content }
-      # end
     else
       session[:spots].push(spotValue)
       @spot = Spot.find(spot_id)
@@ -83,21 +94,8 @@ class SpotsController < ApplicationController
       @spot.save
       redirect_to spots_url, notice: "You successfully add it to your going. "
       
-      # respond_to do |format|
-      #   format.html { redirect_to spots_url, notice: "You successfully add it to your going." }
-      #   format.json { head :no_content }
-      # end
     end
-    # if session[:spots]==nil
-    #   session[:spots] = spotValue
-    #   @spot = Spot.find(spot_id)
-    #   @spot.going = @spot.going+1
-    #   @spot.save
-    #   redirect_to spots_url, notice: "You successfully add it to your going. "
-    # else
-    #   redirect_to spots_url, notice: "You have already added it. "
-    # end
-    
+
   end
 
   private
