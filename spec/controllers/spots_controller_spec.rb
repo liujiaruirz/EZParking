@@ -33,7 +33,7 @@ RSpec.describe "Spots", type: :request do
 
 
   describe "POST /register" do
-    scenario 'valid bookmark attributes' do
+    scenario 'valid register' do
       # send a POST request to /bookmarks, with these parameters
       # The controller will treat them as JSON 
       post '/users/', params: {
