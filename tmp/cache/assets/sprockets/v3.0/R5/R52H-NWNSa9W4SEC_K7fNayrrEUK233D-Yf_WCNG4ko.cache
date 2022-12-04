@@ -1,46 +1,0 @@
-{:uriI"‡file://app/assets/javascripts/gmap_style.json?type=application/json&id=4b3af7dbba70610d8541942132dd2a18f7c44f0421b745c72ab1fa2eb9882753:ET:load_pathI"app/assets/javascripts;T:filenameI"+app/assets/javascripts/gmap_style.json;T:	nameI"gmap_style;T:logical_pathI"gmap_style.json;T:content_typeI"application/json;T:sourceI"‚[
-{
-"elementType": "labels",
-"stylers": [
-{
-"visibility": "off"
-}
-]
-},
-{
-"featureType": "administrative.land_parcel",
-"stylers": [
-{
-"visibility": "off"
-}
-]
-},
-{
-"featureType": "administrative.neighborhood",
-"stylers": [
-{
-"visibility": "on"
-}
-]
-},
-{
-"featureType": "landscape",
-"stylers": [
-{
-"visibility": "on"
-}
-]
-},
-{
-"featureType": "road",
-"stylers": [
-{
-"visibility": "on"
-}
-]
-}
-];T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"9file-digest://app/assets/javascripts/gmap_style.json;TTF:charsetI"
-utf-8;F:digest"%ÑR®k/ö˜‹£yÄT"yñÂ·(»2>¾*šÈÄÄ:lengthi‚:dependencies_digest"%³Ô´OXyÎÏ…‹HÂâ³{Ê_su”‰‰¢+ Ş‚:idI"E4b3af7dbba70610d8541942132dd2a18f7c44f0421b745c72ab1fa2eb9882753;F:
-mtimel+Ş‹c
