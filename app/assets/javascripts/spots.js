@@ -78,7 +78,6 @@ function indexMap(spots_l) {
     zoom: 17
     };
     var map = new google.maps.Map(document.getElementById('indexMap'), mapOptions);
-    // var markers =  
     for (let i = 0; i < spots_l.length; i++) {
         spotCoords = new google.maps.LatLng(spots_l[i][1], spots_l[i][2]);
         var geocoder = new google.maps.Geocoder();
@@ -97,21 +96,52 @@ function indexMap(spots_l) {
         // });
     }
 
-    // for (let i = 0; i < marker_list.length; i++) {
-        
-    //     marker_list[i].addListener("click", () => {
-    //         // map.setZoom(8);
-    //         map.setCenter(marker.getPosition());
-    //         geocodeLatLng(geocoder, map, infowindow, spotCoords, spots_l[i][0]);
-    //       });
-    // }
-        // google.maps.event.addListener(marker,'click',function() {
-        //     // map.setZoom(9);
-        //     map.setCenter(marker.getPosition());
-        //     geocodeLatLng(geocoder, map, infowindow, spotCoords, spots_l[i][0]);
-        // }); 
-    
+    infoWindow = new google.maps.InfoWindow();
+
+    const locationButton = document.createElement("button");
+
+    locationButton.textContent = "Center to Current Location (takes a few sec)";
+    locationButton.setAttribute(
+        'style',
+        'background-color: #fff; border: 0; border-radius: 2px; box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3); margin: 10px; padding: 0 0.5em; font: 400 18px Roboto, Arial, sans-serif; overflow: hidden; height: 40px; cursor: pointer;'
+    )
+    locationButton.classList.add("custom-map-control-button");
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+    locationButton.addEventListener("click", () => {
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+            const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent("You are here.");
+            infoWindow.open(map);
+            map.setCenter(pos);
+            },
+            () => {
+            handleLocationError(true, infoWindow, map.getCenter());
+            }
+        );
+        } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+        }
+    });
 }
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(
+      browserHasGeolocation
+        ? "Error: The Geolocation service failed. Check location sharing permission for your browser."
+        : "Error: Your browser doesn't support geolocation."
+    );
+    infoWindow.open(map);
+  }
 
 function geocodeLatLng(geocoder, map, infowindow, spotCoords, t, marker) {
     // const input = document.getElementById("latlng").value;
@@ -202,6 +232,64 @@ function initMap2() {
     marker.addListener('dragend', function() {
         map.panTo(marker.getPosition());   
     });
+    infoWindow = new google.maps.InfoWindow();
+
+    const locationButton = document.createElement("button");
+    locationButton.setAttribute(
+        'type', 
+        'button'
+    );
+    locationButton.setAttribute(
+        'style',
+        'background-color: #fff; border: 0; border-radius: 2px; box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3); margin: 10px; padding: 0 0.5em; font: 400 14px Roboto, Arial, sans-serif; overflow: hidden; height: 40px; cursor: pointer;'
+    )
+
+    locationButton.textContent = "Use My Current Location (takes a few sec)";
+    locationButton.classList.add("custom-map-control-button");
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+    locationButton.addEventListener("click", () => {
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+            const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+            };
+
+            infoWindow.setPosition(pos);
+            // infoWindow.setContent("You are here.");
+            // infoWindow.open(map);
+            map.setCenter(pos);
+            marker.setPosition(pos);
+            document.getElementById('spot_latitude').value = pos['lat'];
+            document.getElementById('spot_longitude').value = pos['lng'];
+            // when input values change call refreshMarker
+            document.getElementById('spot_latitude').onchange = refreshMarker;
+            document.getElementById('spot_longitude').onchange = refreshMarker;
+            // when marker is dragged update input values
+            marker.addListener('drag', function() {
+                latlng = marker.getPosition();
+                newlat=(Math.round(latlng.lat()*1000000))/1000000;
+                newlng=(Math.round(latlng.lng()*1000000))/1000000;
+                document.getElementById('spot_latitude').value = newlat;
+                document.getElementById('spot_longitude').value = newlng;
+            });
+            // When drag ends, center (pan) the map on the marker position
+            marker.addListener('dragend', function() {
+                map.panTo(marker.getPosition());   
+            });
+            },
+            () => {
+            handleLocationError(true, infoWindow, map.getCenter());
+            }
+        );
+        } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+        }
+    });
+
 }
 
 
