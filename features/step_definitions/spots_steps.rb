@@ -29,7 +29,17 @@ Then /^I should see "(.*)" after "(.*)"$/ do |e1, e2|
     #  page.body is the entire content of the page as a string.
     page.body.index(e1) > page.body.index(e2)
 end
-
+Then /^I travel to "(.*)-(.*)-(.*) (.*):(.*):(.*)"$/ do |year, month, day, hour, minute, second|
+  #  ensure that that e1 occurs before e2.
+  #  page.body is the entire content of the page as a string.
+  year = year.to_i
+  month = month.to_i
+  day = day.to_i
+  hour = hour.to_i
+  minute = minute.to_i
+  second = second.to_i
+  travel_to DateTime.new(year, month, day, hour, minute, second,'-05:00')
+end
 # And /^I should see "(.*)" after "(.*)"$/ do |e1, e2|
 #     #  ensure that that e1 occurs before e2.
 #     #  page.body is the entire content of the page as a string.

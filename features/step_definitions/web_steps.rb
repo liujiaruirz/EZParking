@@ -107,6 +107,10 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   expect(page).to have_content(text)
 end
 
+Then /^(?:|I )should view element "([^"]*)"$/ do |text|
+  expect(page.find("#" + text))
+end
+
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
   assert page.has_xpath?('//*', :text => regexp)

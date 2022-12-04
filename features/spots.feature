@@ -69,3 +69,42 @@ And I follow "Going"
 And I follow the first "Show" 
 And I follow "Going"
 Then I should see "You have already added it."
+
+Scenario: show time to leave for non-available spot with mins
+Given a valid spot
+When I travel to "2023-10-25 08:40:30"
+And I am on the spots page
+Then I should see "30 mins"
+
+Scenario: show time to leave for non-available spot with mins and secs
+Given a valid spot
+When I travel to "2023-10-25 08:59:00"
+And I am on the spots page
+Then I should see "11 mins 30 secs"
+
+Scenario: show time to leave for non-available spot with hours, mins and secs
+Given a valid spot
+When I travel to "2023-10-25 07:59:00"
+And I am on the spots page
+Then I should see "1 hours 11 mins 30 secs"
+
+Scenario: show time to leave for available spot1 
+Given a valid spot
+When I travel to "2023-10-25 09:11:00"
+And I am on the spots page
+Then I should see "Available"
+
+Scenario: show time to leave for available spot2 
+Given a valid spot
+When I travel to "2023-11-25 09:11:00"
+And I am on the spots page
+Then I should see "Available"
+
+Scenario: show map on the home page
+Given I am on the spots page
+Then I should view element "indexMap"
+
+Scenario: show map on the single spot page
+Given a valid spot
+When I follow the first "Show" 
+Then I should view element "map"
