@@ -14,7 +14,7 @@ class SpotsController < ApplicationController
       @spots = Spot.limit(@user.points)
       @spots_list = []
       @spots.each do |spot|
-        @spots_list += [[time_in_sec(spot.time2leave), spot.latitude, spot.longitude]]
+        @spots_list += [[time_in_sec(spot.time2leave), spot.latitude, spot.longitude], spot.id]
     end
   end
   end
