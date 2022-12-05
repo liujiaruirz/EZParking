@@ -40668,3 +40668,244 @@ Unpermitted parameter: :encrypted_password
   Rendered devise/registrations/new.html.erb within layouts/application (4.9ms)
 Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 0.6ms)
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-12-05 14:25:20 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 145ms (Views: 135.4ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-12-05 14:25:20 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (13.7ms)
+  Rendered spots/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 28ms (Views: 18.2ms | ActiveRecord: 2.4ms)
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/spots" for 127.0.0.1 at 2022-12-05 14:25:20 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"spot"=>{"time2leave"=>"20", "latitude"=>"20", "longitude"=>"20"}}
+  [1m[35m (1.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (4.1ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["time2leave", "2022-12-20 00:00:00"], ["latitude", "20.0"], ["longitude", "20.0"], ["created_at", "2022-12-05 19:25:20.665515"], ["updated_at", "2022-12-05 19:25:20.665515"], ["going", 0]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/43
+Completed 302 Found in 9ms (ActiveRecord: 5.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users/" for 127.0.0.1 at 2022-12-05 14:25:20 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"20@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "20@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.7ms)
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 49ms (Views: 20.9ms | ActiveRecord: 6.5ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin"], ["encrypted_password", "$2a$04$kivtCZQa8R5L6clLBi9seOVs8onDgQSp89ir.2eqhohSncM.RbB.S"], ["created_at", "2022-12-05 19:25:20.750532"], ["updated_at", "2022-12-05 19:25:20.750532"]]
+  [1m[35m (1.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "cc@qq.com"], ["encrypted_password", "$2a$04$09vW53E9smFOtsSMxZ2DAOyHKO1dQAu7chn7jDQrxbua7H3S3nxyq"], ["created_at", "2022-12-05 19:25:20.765889"], ["updated_at", "2022-12-05 19:25:20.765889"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/" for 127.0.0.1 at 2022-12-05 14:25:20 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"cc@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 9ms (Views: 4.8ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "cc@qq.com"], ["encrypted_password", "$2a$04$UthbN78a5aDdgw3B6xEFHONjn1C56D2XGz8J5jYzMD7BLY71OohL."], ["created_at", "2022-12-05 19:25:20.788458"], ["updated_at", "2022-12-05 19:25:20.788458"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/" for 127.0.0.1 at 2022-12-05 14:25:20 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"cc@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 19ms (Views: 9.4ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-12-05 14:25:38 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 130ms (Views: 120.2ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-12-05 14:25:38 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (7.9ms)
+  Rendered spots/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 19ms (Views: 10.7ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/spots" for 127.0.0.1 at 2022-12-05 14:25:38 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"spot"=>{"time2leave"=>"20", "latitude"=>"20", "longitude"=>"20"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.6ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["time2leave", "2022-12-20 00:00:00"], ["latitude", "20.0"], ["longitude", "20.0"], ["created_at", "2022-12-05 19:25:38.946153"], ["updated_at", "2022-12-05 19:25:38.946153"], ["going", 0]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/44
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users/" for 127.0.0.1 at 2022-12-05 14:25:38 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"20@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "20@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 31ms (Views: 9.8ms | ActiveRecord: 4.6ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin"], ["encrypted_password", "$2a$04$MbDPrUDvlMwImKurtvivMeUSU65RD5veBRhB0WfHHZFtBKcZq9trW"], ["created_at", "2022-12-05 19:25:39.003276"], ["updated_at", "2022-12-05 19:25:39.003276"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "cc@qq.com"], ["encrypted_password", "$2a$04$RIN7Pz9EoFpCbiXXlfVWNu4sxbIvRAf6O./dHsLLqpjDtO..U9GEO"], ["created_at", "2022-12-05 19:25:39.013030"], ["updated_at", "2022-12-05 19:25:39.013030"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/" for 127.0.0.1 at 2022-12-05 14:25:39 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"cc@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.6ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 4.5ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "cc@qq.com"], ["encrypted_password", "$2a$04$qnS3TXdi7V5CW4aUaD39COU.MyWho8r/pCawEaalPMfjazQouDkIS"], ["created_at", "2022-12-05 19:25:39.033964"], ["updated_at", "2022-12-05 19:25:39.033964"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/" for 127.0.0.1 at 2022-12-05 14:25:39 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"cc@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.6ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 10ms (Views: 4.4ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots" for 127.0.0.1 at 2022-12-05 14:27:34 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT "spots".* FROM "spots"[0m
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 140ms (Views: 129.2ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/spots/new" for 127.0.0.1 at 2022-12-05 14:27:34 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (14.0ms)
+  Rendered spots/new.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 28ms (Views: 18.6ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/spots" for 127.0.0.1 at 2022-12-05 14:27:34 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"spot"=>{"time2leave"=>"20", "latitude"=>"20", "longitude"=>"20"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSpot Create (0.8ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["time2leave", "2022-12-20 00:00:00"], ["latitude", "20.0"], ["longitude", "20.0"], ["created_at", "2022-12-05 19:27:34.665848"], ["updated_at", "2022-12-05 19:27:34.665848"], ["going", 0]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/spots/45
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/users/" for 127.0.0.1 at 2022-12-05 14:27:34 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"20@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "20@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.3ms)
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 39ms (Views: 15.2ms | ActiveRecord: 4.1ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (7.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin"], ["encrypted_password", "$2a$04$0nFwyVvyrQXftHnQWSJrS.jDr5KG7zudV8J31mPtb5JAHYot8Gjsi"], ["created_at", "2022-12-05 19:27:34.740022"], ["updated_at", "2022-12-05 19:27:34.740022"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "cc@qq.com"], ["encrypted_password", "$2a$04$WVxvmIGgL9K.lXcpaM1oG.L8hjce0G6hkVYklsXFJyoXNnzpyXCHa"], ["created_at", "2022-12-05 19:27:34.757445"], ["updated_at", "2022-12-05 19:27:34.757445"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/users/" for 127.0.0.1 at 2022-12-05 14:27:34 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"cc@qq.com", "encrypted_password"=>"[FILTERED]"}}
+Unpermitted parameter: :encrypted_password
+  [1m[35m (3.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cc@qq.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 16ms (Views: 6.5ms | ActiveRecord: 3.8ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@admin"], ["encrypted_password", "$2a$04$XXvY6eufjr.0tZVLiUAigOsU9vH2TpoDrC0T5W77jFBltSoOfN5aS"], ["created_at", "2022-12-05 19:27:34.785302"], ["updated_at", "2022-12-05 19:27:34.785302"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

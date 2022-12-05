@@ -82,14 +82,16 @@ RSpec.describe "Spots", type: :request do
         :password => "123456",
         :password_confirmation => "123456"
       })
-      post '/users/sign_in', params: {
-        user: {
-          email: "admin@admin",
-          encrypted_password: "123456"
-        }
-      }
-      puts response.body
-      expect(response.status).to eq(200)
+      # post '/users/sign_in', params: {
+      #   user: {
+      #     email: "admin@admin",
+      #     encrypted_password: "123456"
+      #   }
+      # }
+      user = User.find_by_email("admin@admin")
+      expect(user.valid_password?("123456")).to eq(true)
+      # puts response.body
+      # expect(response.status).to eq(200)
     end
   end
 
@@ -115,27 +117,26 @@ RSpec.describe "Spots", type: :request do
   describe "POST /login" do
     scenario 'valid user login' do
       @user = User.create!({
-        :email => "cc@qq.com",
+        :email => "admin@admin",
         :password => "123456",
         :password_confirmation => "123456"
       })
-      post '/users/', params: {
-        user: {
-          email: "cc@qq.com",
-          encrypted_password: "bfafjad"
-        }
-      }
-      # puts response.body
-      expect(response.status).to eq(400)
+      # post '/users/sign_in', params: {
+      #   user: {
+      #     email: "admin@admin",
+      #     encrypted_password: "123456"
+      #   }
+      # }
+      user = User.find_by_email("admin@admin")
+      expect(user.valid_password?("fhaksjfha")).to eq(false)
     end
   end
 
-  # # test add going
-  # describe "GET /index" do
-  #   it "returns http success" do
+  # test add going
+  # describe "add going by 1" do
+  #   scenario "user click add going" do
   #     # this will perform a GET request to the /health/index route
-  #     get "/spots"
-  #     expect(response.status).to eq(200)
+      
   #   end
   # end
   
