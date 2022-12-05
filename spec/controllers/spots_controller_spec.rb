@@ -31,7 +31,7 @@ RSpec.describe "Spots", type: :request do
     end
   end
 
-
+  # test successful register
   describe "POST /register" do
     scenario 'valid bookmark attributes' do
       # send a POST request to /bookmarks, with these parameters
@@ -54,6 +54,97 @@ RSpec.describe "Spots", type: :request do
       # expect(json[:latitude]).to eq(10)
 
   end
+
+  # # test register with duplicate email
+  # describe "POST /register" do 
+  #   scenario 'duplicate email registration' do
+  #     post '/users/', params: {
+  #       user: {
+  #         email: "39@qq.com",
+  #         encrypted_password: "sdrhwl3"
+  #       }
+  #     }
+  #     post '/users/', params: {
+  #       user: {
+  #         email: "39@qq.com",
+  #         encrypted_password: "sdrhwl3"
+  #       }
+  #     }
+  #     expect(response.body).to include("1 error prohibited this user from being saved:")
+  #   end
+  # end
+
+  # test login example 1
+  describe "POST /login" do
+    scenario 'valid user login' do
+      @user = User.create!({
+        :email => "admin@admin",
+        :password => "123456",
+        :password_confirmation => "123456"
+      })
+      post '/users/sign_in', params: {
+        user: {
+          email: "admin@admin",
+          encrypted_password: "123456"
+        }
+      }
+      puts response.body
+      expect(response.status).to eq(200)
+    end
+  end
+
+  # test register with duplicate email
+  describe "POST /login" do
+    scenario 'valid user login' do
+      @user = User.create!({
+        :email => "cc@qq.com",
+        :password => "123456",
+        :password_confirmation => "123456"
+      })
+      post '/users/', params: {
+        user: {
+          email: "cc@qq.com",
+          encrypted_password: "cfhasjdfa"
+        }
+      }
+      expect(response.body).to include("Email has already been taken")
+    end
+  end
+
+  # test login with wrong password
+  describe "POST /login" do
+    scenario 'valid user login' do
+      @user = User.create!({
+        :email => "cc@qq.com",
+        :password => "123456",
+        :password_confirmation => "123456"
+      })
+      post '/users/', params: {
+        user: {
+          email: "cc@qq.com",
+          encrypted_password: "bfafjad"
+        }
+      }
+      # puts response.body
+      expect(response.status).to eq(400)
+    end
+  end
+
+  # # test add going
+  # describe "GET /index" do
+  #   it "returns http success" do
+  #     # this will perform a GET request to the /health/index route
+  #     get "/spots"
+  #     expect(response.status).to eq(200)
+  #   end
+  # end
+  
+
+  # duplicate register - email
+  # sign in - incorrect password
+
+
+
   
 
 # described "#expired?" do

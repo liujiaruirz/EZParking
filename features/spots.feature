@@ -29,14 +29,14 @@ Then I should see "Longitude"
 
 Scenario: edit spot detail
 When I click Edit 
-And I fill in "Time2leave" with "2022-11-17 20:18:01"
-And I fill in "Latitude" with "50"
-And I fill in "Longitude" with "-80"
+And I fill in "Time2leave" with "2022-11-18 19:27:29"
+And I fill in "Latitude" with "51.6"
+And I fill in "Longitude" with "-46.3"
 And I press "Update Spot"
-Then I should see "2022-11-17 20:18:01" after "Time to Leave"
+Then I should see "2022-11-18 19:27:29" after "Time to Leave"
 Then I should see "Longitude"
-And I should see "50.0" after "Latitude"
-And I should see "-80.0" after "Longitude"
+And I should see "51.6" after "Latitude"
+And I should see "-46.3" after "Longitude"
 
 #Scenario: destroy spot information
 #Given  I am on the spots page
@@ -46,14 +46,14 @@ And I should see "-80.0" after "Longitude"
 
 Scenario: add new spot
 When I click New Spot
-And I fill in "Time2leave" with "2023-10-25 09:10:30"
-And I fill in "Latitude" with "80"
-And I fill in "Longitude" with "40"
+And I fill in "Time2leave" with "2022-12-01 20:23:39"
+And I fill in "Latitude" with "35.4"
+And I fill in "Longitude" with "52.6"
 And I press "Create Spot"
 Then I should see "Time to Leave" 
-And I should see "2023-10-25 09:10:30"  
-And I should see "80" after "Latitude"
-And I should see "40" after "Longitude"
+And I should see "2022-12-01 20:23:39"  
+And I should see "35.4" after "Latitude"
+And I should see "52.6" after "Longitude"
 
 
 Scenario: user going to the spot
@@ -61,6 +61,7 @@ Given a valid spot
 When I follow the first "Show" 
 And I follow "Going"
 Then I should see "You successfully add it to your going."
+
 
 Scenario: user going to the same spot again
 Given a valid spot

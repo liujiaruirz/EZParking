@@ -42,10 +42,16 @@ class SpotsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Spot.count', -1) do
       delete spot_url(@spot)
     end
-
     assert_redirected_to spots_url
   end
 
+  # test "should add going" do
+  #   assert_difference('Spot.going', -1) do
+  #     #?
+  #   end
+
+  #   assert_redirected_to spots_url
+  # end
 
 end
 
