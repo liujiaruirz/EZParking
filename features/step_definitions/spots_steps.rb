@@ -64,7 +64,8 @@ Given /^a valid spot$/ do
              :latitude => "80",
              :longitude => "40",
              :time2leave => "2023-10-25 09:10:30",
-             :going => "0"
+             :going => "0",
+             :user => "1"
            })
 end
 

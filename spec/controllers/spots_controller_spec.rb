@@ -1,14 +1,40 @@
 require 'rails_helper'
-
+require 'support/controller_helpers'
 RSpec.describe "Spots", type: :request do
   describe "GET /index" do
     it "returns http success" do
       # this will perform a GET request to the /health/index route
       get "/spots"
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(302)
     end
   end
-
+  describe "POST /users/sign_in" do
+    it "returns http success" do
+      # this will perform a GET request to the /health/index route
+      @user = User.create!({
+               :email => "amin@admin",
+               :password => "123456",
+               :password_confirmation => "123456"
+             })
+      encrypted_password = @user.encrypted_password
+      
+      
+      post "/users/sign_in", params: {
+        user: {
+          :email => @user.email,
+          :encrypted_password => @user.encrypted_password
+        }
+      }
+      
+      # sign_in @user
+      # post "/users/sign_in", params: {
+      #  user: @user
+      # }
+      expect(response.status).to eq(200)
+      expect(response.body).to include("successful")
+    end
+  end
+  
   describe "GET /newSpot" do
     it "returns http success" do
       # this will perform a GET request to the /health/index route
@@ -52,7 +78,7 @@ RSpec.describe "Spots", type: :request do
       # # check the value of the returned response hash
       # expect(json[:time2leave]).to eq(10)
       # expect(json[:latitude]).to eq(10)
-
+    
   end
   
 

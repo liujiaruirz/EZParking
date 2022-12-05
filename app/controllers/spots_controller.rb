@@ -3,14 +3,20 @@ class SpotsController < ApplicationController
 
   # GET /spots or /spots.json
   def index
-    @user = User.find(current_user.id)
-    # puts("**********")
-    # puts(@user.points)
-    @spots = Spot.limit(@user.points)
-    @spots_list = []
-    @spots.each do |spot|
-      @spots_list += [[time_in_sec(spot.time2leave), spot.latitude, spot.longitude]]
+    if current_user.nil?
+      redirect_to "/", notice:"Please sign in"
+      
+    else
+      @user = User.find(current_user.id)
+      
+      # puts("**********")
+      # puts(@user.points)
+      @spots = Spot.limit(@user.points)
+      @spots_list = []
+      @spots.each do |spot|
+        @spots_list += [[time_in_sec(spot.time2leave), spot.latitude, spot.longitude]]
     end
+  end
   end
 
   # GET /spots/1 or /spots/1.json
@@ -28,7 +34,7 @@ class SpotsController < ApplicationController
     puts(@spot.latitude)
     puts(@spot.user)
     if @spot.user!=current_user.id
-      redirect_to spots_url, notice: "Yor are not authorized to edit this spot."
+      redirect_to spots_url, notice: "You are not authorized to edit this spot."
     end
   end
 
@@ -78,16 +84,22 @@ class SpotsController < ApplicationController
 
 
   def add_going
+
     cur_id = session[:session_id]
     spot_id = params[:format]
+    
     # spotValue = spot_id+cur_id
     spotValue = spot_id
+    # puts spotValue
     if session[:spots]==nil
+      
       session[:spots]=Array.new
     end
+    
     if session[:spots].include? spotValue
       redirect_to spots_url, notice: "You have already added it. "
     else
+      
       session[:spots].push(spotValue)
       @spot = Spot.find(spot_id)
       @spot.going = @spot.going+1
