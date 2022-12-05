@@ -88,9 +88,11 @@ function indexMap(spots_l) {
             map: map,
             icon: markerStyle(spots_l[i][0])
         });
+        google.maps.event.addListener(marker, 'click', function(){
+            window.open("spots/"+spots_l[i][3], "_self");
+        })
 
         // google.maps.event.addListener(marker, 'click', function() {
-            // your magic goes here
             // map.setCenter(marker.getPosition());
         geocodeLatLng(geocoder, map, infowindow, spotCoords, spots_l[i][0], marker);
         // });
@@ -100,7 +102,7 @@ function indexMap(spots_l) {
 
     const locationButton = document.createElement("button");
 
-    locationButton.textContent = "Center to Current Location (takes a few sec)";
+    locationButton.textContent = "Center to Current Location";
     locationButton.setAttribute(
         'style',
         'background-color: #fff; border: 0; border-radius: 2px; box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3); margin: 10px; padding: 0 0.5em; font: 400 18px Roboto, Arial, sans-serif; overflow: hidden; height: 40px; cursor: pointer;'
@@ -244,7 +246,7 @@ function initMap2() {
         'background-color: #fff; border: 0; border-radius: 2px; box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3); margin: 10px; padding: 0 0.5em; font: 400 14px Roboto, Arial, sans-serif; overflow: hidden; height: 40px; cursor: pointer;'
     )
 
-    locationButton.textContent = "Use My Current Location (takes a few sec)";
+    locationButton.textContent = "Use My Current Location";
     locationButton.classList.add("custom-map-control-button");
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
     locationButton.addEventListener("click", () => {
