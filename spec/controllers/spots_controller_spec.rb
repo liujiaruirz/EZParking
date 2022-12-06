@@ -8,32 +8,7 @@ RSpec.describe "Spots", type: :request do
       expect(response.status).to eq(302)
     end
   end
-  describe "POST /users/sign_in" do
-    it "returns http success" do
-      # this will perform a GET request to the /health/index route
-      @user = User.create!({
-               :email => "amin@admin",
-               :password => "123456",
-               :password_confirmation => "123456"
-             })
-      encrypted_password = @user.encrypted_password
-      
-      
-      post "/users/sign_in", params: {
-        user: {
-          :email => @user.email,
-          :encrypted_password => @user.encrypted_password
-        }
-      }
-      
-      # sign_in @user
-      # post "/users/sign_in", params: {
-      #  user: @user
-      # }
-      expect(response.status).to eq(200)
-      expect(response.body).to include("successful")
-    end
-  end
+  
   
   describe "GET /newSpot" do
     it "returns http success" do
@@ -45,7 +20,6 @@ RSpec.describe "Spots", type: :request do
 
   describe "POST /newSpot" do
     it "returns http success" do
-      # this will perform a GET request to the /health/index route
       post '/spots', params: {
         spot: {
           time2leave: 20,
@@ -58,18 +32,7 @@ RSpec.describe "Spots", type: :request do
   end
 
 
-  describe "POST /register" do
-    scenario 'valid register' do
-      # send a POST request to /bookmarks, with these parameters
-      # The controller will treat them as JSON 
-      post '/users/', params: {
-        user: {
-          email: "20@qq.com",
-          encrypted_password: "3wwwww0"
-        }
-      }
-      expect(response.status).to eq(200)
-    end
+  
       # response should have HTTP Status 201 Created
       
   

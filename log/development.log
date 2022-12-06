@@ -20384,6 +20384,7 @@ Processing by HomeController#index as HTML
   Rendering home/index.html.erb within layouts/application
   Rendered home/index.html.erb within layouts/application (0.8ms)
 Completed 200 OK in 262ms (Views: 257.5ms | ActiveRecord: 0.0ms)
+<<<<<<< HEAD
 Started GET "/" for ::1 at 2022-12-05 19:16:49 -0500
   [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/katherine/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
@@ -20593,5 +20594,177 @@ Processing by HomeController#index as HTML
   Rendering home/index.html.erb within layouts/application
   Rendered home/index.html.erb within layouts/application (0.5ms)
 Completed 200 OK in 171ms (Views: 167.1ms | ActiveRecord: 0.0ms)
+=======
+Started GET "/" for ::1 at 2022-12-05 13:47:58 -0500
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 274ms (Views: 264.5ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2022-12-05 13:48:04 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CyxUq9WWIgzv1LobPZWO0VD32+Uep2zTqmlZ3BigCAngy+clopp+YM3JYCjCK0S+wVZCtarOOiSGiEhopbyRXg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 13:48:04 -0500
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 13:48:07 -0500
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-05 13:48:07 -0500
+Processing by SpotsController#index as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 13:48:07 -0500
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 18:51:35 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 232ms (Views: 227.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-12-05 18:51:38 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (30.2ms)
+Completed 200 OK in 94ms (Views: 50.0ms | ActiveRecord: 32.5ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-12-05 18:51:43 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LlB1GTrW4n3xZtz4FPHdVtDarO7jpbKB0ibVdXArJe5nzC3MRlAvL5aWA1lVsy3bnWhb9t2K/y6uVq445eVlBw==", "user"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 216ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 18:51:43 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 101ms (Views: 68.5ms | ActiveRecord: 22.9ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 18:52:10 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 18:53:27 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 27ms (Views: 24.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 19:02:31 -0500
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 87ms (Views: 83.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 19:03:15 -0500
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (1.6ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 36ms (Views: 29.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 19:05:02 -0500
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2022-12-05 19:05:16 -0500
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.5ms)
+>>>>>>> b23245bfc90eae0fb61dbb2f9e795314bd70a662
 
 
