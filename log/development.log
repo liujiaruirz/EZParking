@@ -20930,3 +20930,827 @@ Processing by SpotsController#index as HTML
 Completed 200 OK in 23ms (Views: 13.9ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/" for ::1 at 2022-12-14 16:29:22 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (4.6ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 690ms (Views: 674.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:30:33 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (46.0ms)
+  Rendered spots/new.html.erb within layouts/application (47.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 76ms (Views: 64.9ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:30:34 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (1.8ms)
+  Rendered spots/new.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/spots" for ::1 at 2022-12-14 16:30:44 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+cS9cOazJ/7ihfOH1MI9obV6pX7nygowYnJ4bJzAv6D6yIKiPpyicPeBKLOxzurOvkNZX+pdczi1yUFW0VBzQg==", "spot"=>{"time2leave"=>"2022-12-14T16:30", "latitude"=>"40.807501", "longitude"=>"-73.962601"}, "commit"=>"Create Spot"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:45
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mSpot Create (7.3ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going", "user") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time2leave", "2022-12-14 16:30:00"], ["latitude", "40.807501"], ["longitude", "-73.962601"], ["created_at", "2022-12-14 21:30:44.368139"], ["updated_at", "2022-12-14 21:30:44.368139"], ["going", 0], ["user", 2]]
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:51
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "points" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["points", 7], ["updated_at", "2022-12-14 21:30:44.379924"], ["id", 2]]
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:53
+Redirected to http://localhost:3000/spots/11
+Completed 302 Found in 15ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/spots/11" for ::1 at 2022-12-14 16:30:44 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:30:54 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 7]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:30:54 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.5ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 7]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 23ms (Views: 17.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:30:57 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.1ms)
+  Rendered spots/new.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:30:57 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (1.7ms)
+  Rendered spots/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/spots" for ::1 at 2022-12-14 16:31:07 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RJXGXcJtOQIkAy46r1pP3jaSXnze/bF36rDs/QwWXBtHmfmPGkK8jDEH9Q7KVpixPauiXdNqyH89C9XHQYaQ+Q==", "spot"=>{"time2leave"=>"2022-12-14T18:30", "latitude"=>"40.807501", "longitude"=>"-73.962601"}, "commit"=>"Create Spot"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:45
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mSpot Create (0.9ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going", "user") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time2leave", "2022-12-14 18:30:00"], ["latitude", "40.807501"], ["longitude", "-73.962601"], ["created_at", "2022-12-14 21:31:07.536337"], ["updated_at", "2022-12-14 21:31:07.536337"], ["going", 0], ["user", 2]]
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "points" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["points", 8], ["updated_at", "2022-12-14 21:31:07.539560"], ["id", 2]]
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:53
+Redirected to http://localhost:3000/spots/12
+Completed 302 Found in 6ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/spots/12" for ::1 at 2022-12-14 16:31:07 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:31:09 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 8]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 30ms (Views: 25.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:31:09 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 8]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 20ms (Views: 15.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:31:11 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.5ms)
+  Rendered spots/new.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:31:11 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.5ms)
+  Rendered spots/new.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/spots" for ::1 at 2022-12-14 16:31:16 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GY4bNc/2SnvLv0l4XC9O4X8SlMhvujQboc6mAvVFJFkagiTnF9nP9d67kkw5I5mOdCto6WItTRN2dZ84uNXouw==", "spot"=>{"time2leave"=>"2022-12-14T16:31", "latitude"=>"40.807501", "longitude"=>"-73.962601"}, "commit"=>"Create Spot"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:45
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mSpot Create (0.2ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going", "user") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time2leave", "2022-12-14 16:31:00"], ["latitude", "40.807501"], ["longitude", "-73.962601"], ["created_at", "2022-12-14 21:31:16.816428"], ["updated_at", "2022-12-14 21:31:16.816428"], ["going", 0], ["user", 2]]
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:51
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "points" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["points", 9], ["updated_at", "2022-12-14 21:31:16.832401"], ["id", 2]]
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:53
+Redirected to http://localhost:3000/spots/13
+Completed 302 Found in 22ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/spots/13" for ::1 at 2022-12-14 16:31:16 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 39ms (Views: 36.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:31:18 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 9]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:31:18 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 9]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:31:20 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.6ms)
+  Rendered spots/new.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:31:20 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (1.9ms)
+  Rendered spots/new.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/spots" for ::1 at 2022-12-14 16:31:27 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jUbAT8o2T4zqR/hpeDFZNLcEyq+GAPNPiCuulGPQTaWOSv+dEhnKAv9DI10dPY5bvD02jouXikdfkJeuLkCBRw==", "spot"=>{"time2leave"=>"2022-12-14T16:31", "latitude"=>"40.807501", "longitude"=>"-73.962601"}, "commit"=>"Create Spot"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:45
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mSpot Create (0.5ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going", "user") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time2leave", "2022-12-14 16:31:00"], ["latitude", "40.807501"], ["longitude", "-73.962601"], ["created_at", "2022-12-14 21:31:27.049878"], ["updated_at", "2022-12-14 21:31:27.049878"], ["going", 0], ["user", 2]]
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:51
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "points" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["points", 10], ["updated_at", "2022-12-14 21:31:27.053424"], ["id", 2]]
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:53
+Redirected to http://localhost:3000/spots/14
+Completed 302 Found in 8ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/spots/14" for ::1 at 2022-12-14 16:31:27 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:31:28 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 24ms (Views: 19.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:31:28 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 15.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:31:31 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.2ms)
+  Rendered spots/new.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:31:31 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (1.9ms)
+  Rendered spots/new.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (14.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 42ms (Views: 27.1ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:35:55 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (8.5ms)
+  Rendered spots/new.html.erb within layouts/application (10.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 208ms (Views: 189.1ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:35:59 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (1.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 27ms (Views: 17.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:35:59 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.9ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 23ms (Views: 17.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:36:54 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/qinghanghong/.rvm/gems/ruby-2.6.6/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 219ms (Views: 179.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/spots/12" for ::1 at 2022-12-14 16:37:39 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:37:48 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.9ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 27ms (Views: 20.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:37:48 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.9ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 23ms (Views: 17.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/spots/11" for ::1 at 2022-12-14 16:38:13 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSpot Load (0.7ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 38ms (Views: 34.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/spots/11" for ::1 at 2022-12-14 16:38:13 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mSpot Load (0.4ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:38:16 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.6ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 26ms (Views: 17.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:38:16 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.3ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:38:28 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (22.2ms)
+  Rendered spots/new.html.erb within layouts/application (25.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:38:28 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.4ms)
+  Rendered spots/new.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/spots" for ::1 at 2022-12-14 16:38:45 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"buJf8p6iXjRcylSXIwGjilGCllzz8RkFU3FErSeqoppt7mAgRo3buknOj6NGDXTlWrtqff5mYA2Eyn2XajpueA==", "spot"=>{"time2leave"=>"2022-12-14T16:38", "latitude"=>"40.81023", "longitude"=>"-73.962301"}, "commit"=>"Create Spot"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:45
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mSpot Create (0.4ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going", "user") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time2leave", "2022-12-14 16:38:00"], ["latitude", "40.81023"], ["longitude", "-73.962301"], ["created_at", "2022-12-14 21:38:45.042888"], ["updated_at", "2022-12-14 21:38:45.042888"], ["going", 0], ["user", 2]]
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:51
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[36mUser Update (10.0ms)[0m  [1m[33mUPDATE "users" SET "points" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["points", 11], ["updated_at", "2022-12-14 21:38:45.087091"], ["id", 2]]
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:53
+Redirected to http://localhost:3000/spots/15
+Completed 302 Found in 58ms (ActiveRecord: 52.5ms)
+
+
+Started GET "/spots/15" for ::1 at 2022-12-14 16:38:45 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:38:47 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.5ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 23ms (Views: 17.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:38:47 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.8ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 22ms (Views: 16.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:38:50 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.5ms)
+  Rendered spots/new.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:38:50 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (1.8ms)
+  Rendered spots/new.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/spots" for ::1 at 2022-12-14 16:39:09 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gtqz5ehflVJSLPqJuacx32gdoOFK/fvt5Bo+WcNvBU6B1ow3MHAQ3EcoIb3cq+awYyRcwEdqguUzoQdjjv/JrA==", "spot"=>{"time2leave"=>"2022-12-14T16:48", "latitude"=>"40.808346", "longitude"=>"-73.959876"}, "commit"=>"Create Spot"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:45
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mSpot Create (0.3ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going", "user") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time2leave", "2022-12-14 16:48:00"], ["latitude", "40.808346"], ["longitude", "-73.959876"], ["created_at", "2022-12-14 21:39:09.271101"], ["updated_at", "2022-12-14 21:39:09.271101"], ["going", 0], ["user", 2]]
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:51
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "points" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["points", 12], ["updated_at", "2022-12-14 21:39:09.278507"], ["id", 2]]
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:53
+Redirected to http://localhost:3000/spots/16
+Completed 302 Found in 11ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/spots/16" for ::1 at 2022-12-14 16:39:09 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:39:11 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 12]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 17.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:39:11 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 12]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:39:16 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.6ms)
+  Rendered spots/new.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:39:16 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (1.9ms)
+  Rendered spots/new.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/spots" for ::1 at 2022-12-14 16:39:32 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N2/0sMvSqCS1IPGxnuj/90mvDmKdZFna7CZZ8dHENe80Y8tiE/0tqqAkKoX75CiYQpbyQ5DzINI7nWDLnFT5DQ==", "spot"=>{"time2leave"=>"2022-12-14T17:39", "latitude"=>"40.810684", "longitude"=>"-73.958438"}, "commit"=>"Create Spot"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:45
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mSpot Create (0.5ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going", "user") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time2leave", "2022-12-14 17:39:00"], ["latitude", "40.810684"], ["longitude", "-73.958438"], ["created_at", "2022-12-14 21:39:32.347999"], ["updated_at", "2022-12-14 21:39:32.347999"], ["going", 0], ["user", 2]]
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:51
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "points" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["points", 13], ["updated_at", "2022-12-14 21:39:32.358164"], ["id", 2]]
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:53
+Redirected to http://localhost:3000/spots/17
+Completed 302 Found in 14ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/spots/17" for ::1 at 2022-12-14 16:39:32 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:39:34 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.9ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 13]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 38ms (Views: 31.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:39:34 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 13]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:39:38 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.7ms)
+  Rendered spots/new.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/spots/new" for ::1 at 2022-12-14 16:39:38 -0500
+Processing by SpotsController#new as HTML
+  Rendering spots/new.html.erb within layouts/application
+  Rendered spots/_form.html.erb (2.0ms)
+  Rendered spots/new.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/spots" for ::1 at 2022-12-14 16:39:47 -0500
+Processing by SpotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wLb0FXP7csXoaVJODFYm1ynIXr6PVTZ+SoUbCDDZKhbDusvHq9T3S/1tiXppWvG4IvGin4LCT3adPiIyfUnm9A==", "spot"=>{"time2leave"=>"2022-12-14T19:39", "latitude"=>"40.807501", "longitude"=>"-73.962601"}, "commit"=>"Create Spot"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:45
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mSpot Create (0.4ms)[0m  [1m[32mINSERT INTO "spots" ("time2leave", "latitude", "longitude", "created_at", "updated_at", "going", "user") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["time2leave", "2022-12-14 19:39:00"], ["latitude", "40.807501"], ["longitude", "-73.962601"], ["created_at", "2022-12-14 21:39:47.727774"], ["updated_at", "2022-12-14 21:39:47.727774"], ["going", 0], ["user", 2]]
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:47
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:51
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "points" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["points", 14], ["updated_at", "2022-12-14 21:39:47.730913"], ["id", 2]]
+  ↳ app/controllers/spots_controller.rb:53
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/spots_controller.rb:53
+Redirected to http://localhost:3000/spots/18
+Completed 302 Found in 8ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/spots/18" for ::1 at 2022-12-14 16:39:47 -0500
+Processing by SpotsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" WHERE "spots"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:116
+  Rendering spots/show.html.erb within layouts/application
+  Rendered spots/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:39:49 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.2ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 14]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/spots" for ::1 at 2022-12-14 16:39:49 -0500
+Processing by SpotsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/spots_controller.rb:10
+  [1m[36mSpot Load (0.1ms)[0m  [1m[34mSELECT  "spots".* FROM "spots" LIMIT $1[0m  [["LIMIT", 14]]
+  ↳ app/controllers/spots_controller.rb:16
+  Rendering spots/index.html.erb within layouts/application
+  Rendered spots/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.5ms)
+
+

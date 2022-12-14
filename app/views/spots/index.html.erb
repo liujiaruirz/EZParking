@@ -10,10 +10,10 @@
 .legend li { float: left; margin-right: 10px; }
 .legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
 /* your colors */
-.legend .superawesome { background-color: green; }
-.legend .awesome { background-color: yellow; }
-.legend .kindaawesome { background-color: red; }
-.legend .notawesome { background-color: purple; }
+.legend .available { background-color: green; }
+.legend .soon { background-color: yellow; }
+.legend .longer { background-color: red; }
+.legend .longest { background-color: purple; }
   </style>
 <% end %>
 
@@ -62,10 +62,10 @@
 
 <%= link_to 'New Spot', new_spot_path %>
 <ul class="legend">
-    <li><span class="superawesome"></span>Available now</li>
-    <li><span class="awesome"></span>Available in less than 15 minutes</li>
-    <li><span class="kindaawesome"></span>Available in less than 2 hours</li>
-    <li><span class="notawesome"></span>Available in more than 2 hours</li>
+    <li><span class="available"></span>Available now</li>
+    <li><span class="soon"></span>Available in less than 15 minutes</li>
+    <li><span class="longer"></span>Available in less than 2 hours</li>
+    <li><span class="longest"></span>Available in more than 2 hours</li>
 </ul>
 <p>
   <div id="indexMap"></div>
