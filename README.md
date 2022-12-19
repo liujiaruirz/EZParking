@@ -59,12 +59,4 @@ https://secure-scrubland-29494.herokuapp.com/
 2. Allows users to click "going" for parking spots and see number of people going for each spot
 3. Show address and information of each spot on the map
 
-## TODO
-1. reward system
-2. interactive spots details on map with onclick function (with more details redirect to _show_ page)
-3. dynamic time
-4. prevent non-authorization access
-5. modify _Edit_ page with parameters
-6. automatically delete outdated spots
-7. new spot with current location
-8. replace destroy with I occupied/someone occupied the spot
+
