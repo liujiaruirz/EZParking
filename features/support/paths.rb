@@ -17,9 +17,12 @@ module NavigationHelpers
       when /^Edit$/ then '/spots/1/edit'
       when /^Destroy$/ then '/spots/1/destroy'
       when /^logout$/ then '/'
+      when /^change password$/ then '/users/edit'
       when /^New Spot$/ then '/spots/new'
       when /^the sign up page$/ then '/users/sign_up'
       when /^the sign in page$/ then '/users/sign_in'
+      when /^the edit page$/ then '/users/edit'
+      
     #   when /^Update Spot$/ then '/spots/1'  
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:

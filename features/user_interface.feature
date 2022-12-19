@@ -8,15 +8,19 @@ Feature: user interface
 Background: user data added to database
 
 
-
-
-
 Scenario: create an account successfully
-
 Given  I am on the sign up page
 When I fill in "Email" with "1234@gmail.com"
 And I fill in "Password" with "123456"
 And I fill in "Password confirmation" with "123456"
+When I press "Sign up" 
+Then I should see "Welcome! You have signed up successfully."
+
+Scenario: create another account successfully
+Given  I am on the sign up page
+When I fill in "Email" with "33ad@gmail.com"
+And I fill in "Password" with "932ja;d"
+And I fill in "Password confirmation" with "932ja;d"
 When I press "Sign up" 
 Then I should see "Welcome! You have signed up successfully."
 
@@ -48,12 +52,11 @@ And I press "Log in"
 Then I should see "Signed in successfully"
 
 Scenario: sign in failed
-Given  I am on the sign in page
+Given I am on the sign in page
 And I fill in "Email" with "amin@admin"
 And I fill in "Password" with "123456"
 And I press "Log in" 
 Then I should see "Invalid Email or password."
-
 
 
 Scenario: log out of my account
@@ -65,4 +68,35 @@ And I press "Log in"
 And I am on the spots page
 And I click logout 
 Then I should see "logout"
+
+
+Scenario: change password correctly
+Given a valid user
+When I go to the sign in page
+And I fill in "Email" with "amin@admin"
+And I fill in "Password" with "123456"
+And I press "Log in"
+And I am on the spots page
+And I click change password
+And I am on the edit page
+And I fill in "Password" with "abcdef"
+And I fill in "Password confirmation" with "abcdef"
+And I fill in "Current password" with "123456"
+And I press "Update"
+Then I should see "Your account has been updated successfully."
+
+Scenario: change password with incorrect current password
+Given a valid user
+When I go to the sign in page
+And I fill in "Email" with "amin@admin"
+And I fill in "Password" with "123456"
+And I press "Log in"
+And I am on the spots page
+And I click change password
+And I am on the edit page
+And I fill in "Password" with "abcdef"
+And I fill in "Password confirmation" with "abcdef"
+And I fill in "Current password" with "213456"
+And I press "Update"
+Then I should see "invalid"
 

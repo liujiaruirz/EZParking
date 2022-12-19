@@ -2,89 +2,265 @@ require 'rails_helper'
 require 'support/controller_helpers'
 
 RSpec.describe "Users", type: :request do
-    describe "POST /users/sign_in" do
-        it "returns correct password" do
-          # this will perform a GET request to the /health/index route
-          @user = User.create!({
-                   :email => "amin@admin",
-                   :password => "123456",
-                   :password_confirmation => "123456"
-                 })
-          expect(@user.valid_password?('123456')).to be_truthy
-        end
-        it "returns incorrect password" do
-            # this will perform a GET request to the /health/index route
-            @user = User.create!({
-                     :email => "amin@admin",
-                     :password => "123456",
-                     :password_confirmation => "123456"
-                   })
-            expect(@user.valid_password?('123455')).to be_falsey
-          end
+  # test successful register - example 1
+
+  describe "POST /register" do
+    scenario 'valid register' do
+      @user = User.create!({
+        :email => "23c@qq.com",
+        :password => "123456",
+        :password_confirmation => "123456"
+      })
+      user = User.find_by_email("23c@qq.com")
+      expect(user.blank?).to eq(false)
     end
-    describe "POST /users/sign_up" do
-        it "correct sign up 1" do
-          # this will perform a GET request to the /health/index route
-          @user = User.create!({
-                   :email => "amin@admin",
-                   :password => "123456",
-                   :password_confirmation => "123456"
-                 })
-          expect(@user.valid_password?('123456')).to be_truthy
-        end
-        it "correct sign up 2" do
-            # this will perform a GET request to the /health/index route
-            @user = User.create!({
-                     :email => "admin@admin",
-                     :password => "654321",
-                     :password_confirmation => "654321"
-                   })
-            expect(@user.valid_password?('654321')).to be_truthy
-          end
-        it "duplicate email sign up" do
-            # this will perform a GET request to the /health/index route
-            @user1 = User.create!({
-                     :email => "amin@admin",
-                     :password => "123456",
-                     :password_confirmation => "123456"
-                   })
-            expect{User.create!({
-                    :email => "amin@admin",
-                    :password => "1234567",
-                    :password_confirmation => "1234567"
-            })}.to raise_error(ActiveRecord::RecordInvalid)
-            
-          end
-          it "duplicate email sign up 2" do
-            # this will perform a GET request to the /health/index route
-            @user1 = User.create!({
-                     :email => "amin@admin",
-                     :password => "123456",
-                     :password_confirmation => "123456"
-                   })
-            @user2 = User.create!({
-                :email => "admin@admin",
-                :password => "123456",
-                :password_confirmation => "123456"
-            })
-            expect{User.create!({
-                    :email => "admin@admin",
-                    :password => "1234567",
-                    :password_confirmation => "1234567"
-            })}.to raise_error(ActiveRecord::RecordInvalid)
-            
-          end
-          describe "POST /register" do
-            scenario 'valid register' do
-              # send a POST request to /bookmarks, with these parameters
-              # The controller will treat them as JSON 
-              post '/users/', params: {
-                user: {
-                  email: "20@qq.com",
-                  encrypted_password: "3wwwww0"
-                }
-              }
-              expect(response.status).to eq(200)
-            end
+  end
+
+  # test successful register - example 2
+  describe "POST /register" do
+    scenario 'valid register' do
+      @user = User.create!({
+        :email => "4134@gmail.com",
+        :password => "641=a4",
+        :password_confirmation => "641=a4"
+      })
+      user = User.find_by_email("4134@gmail.com")
+      expect(user.blank?).to eq(false)
     end
+  end
+
+  # test register with duplicate email - example 1
+  describe "POST /login" do
+    scenario 'register with duplicate email' do
+      @user = User.create!({
+        :email => "cc@gmail.com",
+        :password => "123456",
+        :password_confirmation => "123456"
+      })
+      post '/users/', params: {
+        user: {
+          email: "cc@gmail.com",
+          encrypted_password: "cfhasjdfa"
+        }
+      }
+      expect(response.body).to include("Email has already been taken")
+    end
+  end
+
+  # test register with duplicate email - example 2
+  describe "POST /login" do
+    scenario 'register with duplicate email' do
+      @user = User.create!({
+        :email => "n41@qq.com",
+        :password => "534m43",
+        :password_confirmation => "534m43"
+      })
+      post '/users/', params: {
+        user: {
+          email: "n41@qq.com",
+          encrypted_password: "534m43"
+        }
+      }
+      expect(response.body).to include("Email has already been taken")
+    end
+  end
+
+  # test correct login - example 1
+  describe "POST /login" do
+    scenario 'valid user login' do
+      @user = User.create!({
+        :email => "admin@admin",
+        :password => "123456",
+        :password_confirmation => "123456"
+      })
+      # post '/users/sign_in', params: {
+      #   user: {
+      #     email: "admin@admin",
+      #     encrypted_password: "123456"
+      #   }
+      # }
+      user = User.find_by_email("admin@admin")
+      expect(user.valid_password?("123456")).to eq(true)
+      # puts response.body
+      # expect(response.status).to eq(200)
+    end
+  end
+
+  # test correct login - example 2
+  describe "POST /login" do
+    scenario 'valid user login' do
+      @user = User.create!({
+        :email => "329@qq.com",
+        :password => "kas;'f",
+        :password_confirmation => "kas;'f"
+      })
+      user = User.find_by_email("329@qq.com")
+      expect(user.valid_password?("kas;'f")).to eq(true)
+    end
+  end
+
+
+  # test login with wrong password - example 1
+  describe "POST /login" do
+    scenario 'login with wrong password' do
+      @user = User.create!({
+        :email => "admin@admin",
+        :password => "123456",
+        :password_confirmation => "123456"
+      })
+      user = User.find_by_email("admin@admin")
+      expect(user.valid_password?("fhaksjfha")).to eq(false)
+    end
+  end
+
+    # test login with wrong password - example 2
+    describe "POST /login" do
+      scenario 'login with wrong password' do
+        @user = User.create!({
+          :email => "5j@qq.com",
+          :password => "44523n",
+          :password_confirmation => "44523n"
+        })
+        user = User.find_by_email("5j@qq.com")
+        expect(user.valid_password?("ar;jernakjer")).to eq(false)
+      end
+    end
+
+  # test login for unregistered user - example 1
+  describe "POST /login" do
+    scenario 'login for unregistered user' do
+      user = User.find_by_email("145@qq.com")
+      expect(user.blank?).to eq(true)
+    end
+  end
+
+  # test login for unregistered user - example 2
+  describe "POST /login" do
+    scenario 'login for unregistered user' do
+      user = User.find_by_email("3o1@qq.com")
+      expect(user.blank?).to eq(true)
+    end
+  end
+
+  # test forgot password with valid email - example 1
+  describe "POST /login" do
+    scenario 'forgot password with valid email' do
+      @user = User.create!({
+        :email => "admin@admin",
+        :password => "123456",
+        :password_confirmation => "123456"
+      })
+
+      post '/users/password', params: {
+        Parameters: {
+          "utf8"=>"✓", 
+          "authenticity_token"=>"CbUeu15uT9Uu8bD8tSwEPr51I/5PdT5X/05gPkmVYfoLQs+yP/9kfM+7mEIXEh8VZbRCDmS6tyotYP42wIYiIQ==", 
+          "user"=>{"email"=>"admin@admin"}, 
+          "commit"=>"Send me reset password instructions"
+        }
+        # user: {
+        #   email: "cc@qq.com",
+        #   encrypted_password: "cfhasjdfa"
+        # }
+      }
+      
+      user = User.find_by_email("admin@admin")
+      # puts(response.body)
+      expect(user.send_reset_password_instructions.blank?).to eq(false)
+      # expect(response.body).to include("You will receive an email with instructions on how to reset your password in a few minutes.")
+    end
+  end
+
+  # test forgot password with valid email - example 2
+  describe "POST /login" do
+    scenario 'forgot password with valid email' do
+      @user = User.create!({
+        :email => "3n5@qq.com",
+        :password => "123456",
+        :password_confirmation => "123456"
+      })
+
+      post '/users/password', params: {
+        Parameters: {
+          "utf8"=>"✓", 
+          "authenticity_token"=>"CbUeu15uT9Uu8bD8tSwEPr51I/5PdT5X/05gPkmVYfoLQs+yP/9kfM+7mEIXEh8VZbRCDmS6tyotYP42wIYiIQ==", 
+          "user"=>{"email"=>"3n5@qq.com"}, 
+          "commit"=>"Send me reset password instructions"
+        }
+      }
+      
+      user = User.find_by_email("3n5@qq.com")
+      # puts(response.body)
+      expect(user.send_reset_password_instructions.blank?).to eq(false)
+      # expect(response.body).to include("You will receive an email with instructions on how to reset your password in a few minutes.")
+    end
+  end
+  
+    # test forgot password with invalid email - example 1
+    describe "POST /login" do
+      scenario 'forgot password with invalid email' do
+        @user = User.create!({
+          :email => "admin@admin",
+          :password => "123456",
+          :password_confirmation => "123456"
+        })
+  
+        post '/users/password', params: {
+          Parameters: {
+            "utf8"=>"✓", 
+            "authenticity_token"=>"CbUeu15uT9Uu8bD8tSwEPr51I/5PdT5X/05gPkmVYfoLQs+yP/9kfM+7mEIXEh8VZbRCDmS6tyotYP42wIYiIQ==", 
+            "user"=>{"email" =>"4782@gmail.com"}, 
+            "commit"=>"Send me reset password instructions"
+          }
+        }
+        expect(response.body).to include("1 error prohibited this user from being saved:")
+      end
+    end
+
+    # test forgot password with invalid email - example 2
+    describe "POST /login" do
+      scenario 'forgot password with invalid email' do
+        @user = User.create!({
+          :email => "1235@gmail.com",
+          :password => "123456",
+          :password_confirmation => "123456"
+        })
+  
+        post '/users/password', params: {
+          Parameters: {
+            "utf8"=>"✓", 
+            "authenticity_token"=>"CbUeu15uT9Uu8bD8tSwEPr51I/5PdT5X/05gPkmVYfoLQs+yP/9kfM+7mEIXEh8VZbRCDmS6tyotYP42wIYiIQ==", 
+            "user"=>{"email" =>"aar3@gmail.com"}, 
+            "commit"=>"Send me reset password instructions"
+          }
+        }
+        expect(response.body).to include("1 error prohibited this user from being saved:")
+      end
+    end
+
+    # test change password - example 1
+    describe "POST /login" do
+      scenario 'change password' do
+        @user = User.create!({
+          :email => "1235@gmail.com",
+          :password => "123456",
+          :password_confirmation => "123456"
+        })
+        put '/users', params: {
+          Parameters: {
+            "utf8"=>"✓", 
+            "user"=>{"email"=>"1235@gmail.com", 
+            "password"=>"234567", 
+            "password_confirmation"=>"234567", 
+            "current_password"=>"123456"}, 
+            "commit"=>"Update"
+          }
+        }
+        user = User.find_by_email("1235@gmail.com")
+        expect(user.valid_password?("234567")).to eq(true)
+        # puts(response.body)
+        # expect(response.body).to include("Your account has been updated successfully.")
+      end
+    end
+
 end
