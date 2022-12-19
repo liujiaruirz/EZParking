@@ -1,9 +1,7 @@
 require 'rails_helper'
-require 'support/controller_helpers'
-
 RSpec.describe "Users", type: :request do
   # test successful register - example 1
-
+  # include Warden::Test::Helpers
   describe "POST /register" do
     scenario 'valid register' do
       @user = User.create!({
@@ -11,6 +9,8 @@ RSpec.describe "Users", type: :request do
         :password => "123456",
         :password_confirmation => "123456"
       })
+      # login_as @user
+    
       user = User.find_by_email("23c@qq.com")
       expect(user.blank?).to eq(false)
     end
@@ -246,21 +246,41 @@ RSpec.describe "Users", type: :request do
           :password => "123456",
           :password_confirmation => "123456"
         })
-        put '/users', params: {
-          Parameters: {
-            "utf8"=>"✓", 
-            "user"=>{"email"=>"1235@gmail.com", 
-            "password"=>"234567", 
-            "password_confirmation"=>"234567", 
-            "current_password"=>"123456"}, 
-            "commit"=>"Update"
-          }
-        }
-        user = User.find_by_email("1235@gmail.com")
-        expect(user.valid_password?("234567")).to eq(true)
+        # put '/users', params: {
+        #   Parameters: {
+        #     "utf8"=>"✓", 
+        #     "user"=>{"email"=>"1235@gmail.com", 
+        #     "password"=>"234567", 
+        #     "password_confirmation"=>"234567", 
+        #     "current_password"=>"123456"}, 
+        #     "commit"=>"Update"
+        #   }
+        # }
+        # user = User.find_by_email("1235@gmail.com")
+        @user.reset_password("234567", "234567")
+        expect(@user.valid_password?("234567")).to eq(true)
+        expect(@user.valid_password?("1234567")).to eq(false)
         # puts(response.body)
         # expect(response.body).to include("Your account has been updated successfully.")
       end
     end
-
+    describe "reward points" do
+      scenario 'initial reward' do
+        @user = User.create!({
+          :email => "admin@admin",
+          :password => "123456",
+          :password_confirmation => "123456"
+        })
+        expect(@user.points).to eq(5)
+      end
+      scenario 'added reward' do
+        @user = User.create!({
+          :email => "admin@admin",
+          :password => "123456",
+          :password_confirmation => "123456"
+        })
+        @user.points += 1
+        expect(@user.points).to eq(6)
+      end
+    end
 end
