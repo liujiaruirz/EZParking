@@ -31,25 +31,11 @@ RSpec.describe "Spots", type: :request do
     end
   end
 
-
-  
-      # response should have HTTP Status 201 Created
-      
-  
-      # json = JSON.parse(response.body).deep_symbolize_keys
-      
-      # # check the value of the returned response hash
-      # expect(json[:time2leave]).to eq(10)
-      # expect(json[:latitude]).to eq(10)
     
   end
   
 
-# described "#expired?" do
-#   it "return false if item is not expired and true if item is expired" do
-#     expect(item.expired?).to eq(false)    travel 5.day    expect(item.expired?).to eq(true)
-#   end
-# end
+
 end
 
 

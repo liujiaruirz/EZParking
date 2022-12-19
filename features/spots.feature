@@ -145,3 +145,35 @@ And I follow the first "Show"
 And I follow "Taken"
 Then I should see "Spot was successfully destroyed"
 
+Scenario: initial reward
+When I am on the spots page
+Then I should see "Your current points: 5"
+
+Scenario: initial reward
+When I am on the spots page
+Then I should see "Your current points: 5"
+
+Scenario: reward after adding one spot
+When I am on the spots page
+And I click New Spot
+And I fill in "Time2leave" with "2023-10-25 09:10:30"
+And I fill in "Latitude" with "80"
+And I fill in "Longitude" with "40"
+And I press "Create Spot"
+And I am on the spots page
+Then I should see "Your current points: 6"
+
+Scenario: reward after adding two spots
+When I am on the spots page
+And I click New Spot
+And I fill in "Time2leave" with "2023-10-25 09:10:30"
+And I fill in "Latitude" with "80"
+And I fill in "Longitude" with "40"
+And I press "Create Spot"
+And I click New Spot
+And I fill in "Time2leave" with "2023-10-26 09:10:30"
+And I fill in "Latitude" with "80"
+And I fill in "Longitude" with "40"
+And I press "Create Spot"
+And I am on the spots page
+Then I should see "Your current points: 7"
