@@ -1,5 +1,7 @@
 require 'rails_helper'
 require 'support/controller_helpers'
+require 'rake'
+
 RSpec.describe "Spots", type: :request do
   # before do
   #   @user = User.create!({
@@ -106,6 +108,41 @@ RSpec.describe "Spots", type: :request do
       spot1.going = 1
       expect(spot1.going).to eq(1)
     end
+  end
+  describe "auto delete spot" do
+    it "deletes expired spots" do
+      spot1 = Spot.create!(
+        :latitude => 45.0,
+        :longitude => 112.34,
+        :time2leave => "2022-12-19 15:35",
+        :user => 1,
+        :going => 0
+      )
+      travel_to Time.zone.local(2022, 12, 21, 01, 04, 44)
+      load File.expand_path("../../../lib/tasks/spots.rake", __FILE__)
+# make sure you set correct relative path 
+      Rake::Task.define_task(:environment)
+      # Rake::Task["update_data"].invoke
+      Rake::Task["spots:delete_old_spots"].invoke
+      expect(Spot.count).to eq(0)
+    end
+    it "does not deletes new spots" do
+      spot1 = Spot.create!(
+        :latitude => 45.0,
+        :longitude => 112.34,
+        :time2leave => "2022-12-19 15:35",
+        :user => 1,
+        :going => 0
+      )
+      travel_to Time.zone.local(2022, 12, 19, 15, 04, 44)
+      load File.expand_path("../../../lib/tasks/spots.rake", __FILE__)
+      # make sure you set correct relative path 
+      Rake::Task.define_task(:environment)
+      # Rake::Task["update_data"].invoke
+      Rake::Task["spots:delete_old_spots"].invoke
+      expect(Spot.count).to eq(1)
+    end
+
   end
 
 end
